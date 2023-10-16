@@ -13,7 +13,9 @@ function navNavigate(page: number) {
 
 <script lang="ts">
 export default {
-  data: () => {},
+  data: () => ({
+
+  }),
   methods: {},
 };
 </script>
