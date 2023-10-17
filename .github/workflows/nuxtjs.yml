@@ -34,27 +34,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Detect package manager
-        working-directory: ./docs
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/docs/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/docs/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
+      - uses: pnpm/action-setup@v2
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
@@ -74,10 +59,10 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         working-directory: ./docs
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: pnpm install
       - name: Static HTML export with Nuxt
         working-directory: ./docs
-        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+        run: pnpm run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
