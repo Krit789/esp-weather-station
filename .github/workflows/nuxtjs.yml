@@ -30,19 +30,18 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
         run:
-          working-directory: ./docs # Here the path to the folder where package-lock.json is located.
+          working-directory: docs # Here the path to the folder where package-lock.json is located.
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      # - name: Setup pnpm
+      #   uses: pnpm/action-setup@v2
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.json'
-          working-directory: ./docs
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
@@ -55,21 +54,19 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ./docs/dist
-            ./docs/.nuxt
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
+            .output 
+            .nuxt
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('.output') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
-        working-directory: ./docs
         run: pnpm install
       - name: Static HTML export with Nuxt
-        working-directory: ./docs
         run: pnpm run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./docs/dist
+          path: .output
 
   # Deployment job
   deploy:
