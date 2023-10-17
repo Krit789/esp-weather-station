@@ -14,6 +14,9 @@ dependencies:
   chart.js:
     specifier: ^4.4.0
     version: 4.4.0
+  luxon:
+    specifier: ^3.4.3
+    version: 3.4.3
   vue-chartjs:
     specifier: ^5.2.0
     version: 5.2.0(chart.js@4.4.0)(vue@3.3.4)
@@ -22,6 +25,9 @@ devDependencies:
   '@nuxt/devtools':
     specifier: latest
     version: 1.0.0-beta.2(nuxt@3.7.4)(vite@4.4.11)
+  '@types/luxon':
+    specifier: ^3.3.2
+    version: 3.3.2
   nuxt:
     specifier: ^3.7.4
     version: 3.7.4
@@ -1619,6 +1625,10 @@ packages:
     resolution: {integrity: sha512-kQtujO08dVtQ2wXAuSFfk9ASy3sug4+ogFR8Kd8UgP8PEuc1/G/8yjYRmp//PcDNJEUKOza/MrQu15bouEUCiw==}
     dependencies:
       '@types/node': 20.8.6
+    dev: true
+
+  /@types/luxon@3.3.2:
+    resolution: {integrity: sha512-l5cpE57br4BIjK+9BSkFBOsWtwv6J9bJpC7gdXIzZyI0vuKvNTk0wZZrkQxMGsUAuGW9+WMNWF2IJMD7br2yeQ==}
     dev: true
 
   /@types/node@20.8.6:
@@ -3740,6 +3750,11 @@ packages:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
     dev: true
+
+  /luxon@3.4.3:
+    resolution: {integrity: sha512-tFWBiv3h7z+T/tDaoxA8rqTxy1CHV6gHS//QdaH4pulbq/JuBSGgQspQQqcgnwdAx6pNI7cmvz5Sv/addzHmUg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /magic-string-ast@0.3.0:
     resolution: {integrity: sha512-0shqecEPgdFpnI3AP90epXyxZy9g6CRZ+SZ7BcqFwYmtFEnZ1jpevcV5HoyVnlDS9gCnc1UIg3Rsvp3Ci7r8OA==}
