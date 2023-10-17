@@ -11,7 +11,7 @@ useHead({
 </script>
 
 <template>
-    <v-main style="height: 100vh">
+    <v-main class="ma-6" style="height: 100vh">
       <h1>History</h1>
     </v-main>
   </template>

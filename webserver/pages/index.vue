@@ -18,7 +18,7 @@ useSeoMeta({
 });
 </script>
 <template>
-  <v-main style="height: 100vh">
-    <h1>The Forcaster</h1>
+  <v-main class="ma-6" style="height: 100vh">
+    <h1>Current Outlook</h1>
   </v-main>
 </template>
