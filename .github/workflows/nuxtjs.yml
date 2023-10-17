@@ -81,5 +81,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: docs
-          folder: .output # The folder the action should deploy.
+          branch: gh-pages
+          folder: public # The folder the action should deploy.
