@@ -40,8 +40,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.json'
+          cache: 'yarn'
+          # cache-dependency-path: '**/pnpm-lock.json'
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
@@ -60,9 +60,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install
       - name: Static HTML export with Nuxt
-        run: pnpm run generate
+        run: yarn run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
