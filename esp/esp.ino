@@ -1,12 +1,13 @@
 #include <FS.h>          //this needs to be first, or it all crashes and burns...
 #include <WiFiManager.h> //https://github.com/tzapu/WiFiManager
-
+#include <WiFiClient.h>
 #ifdef ESP32
 #include <SPIFFS.h>
 #endif
 
 #include <ArduinoJson.h> //https://github.com/bblanchon/ArduinoJson
 #include <LCD_I2C.h>
+#include <ESP8266HTTPClient.h>
 // select which pin will trigger the configuration portal when set to LOW
 #define TRIGGER_PIN 0
 
@@ -19,10 +20,10 @@ char api_server[60];
 bool shouldSaveConfig = false;
 
 unsigned long currentMillis, startMillis;
-
 // WiFiManager
 WiFiManager wifiManager;
 
+DynamicJsonDocument doc(200);
 // LCD Initialization
 LCD_I2C lcd(0x27, 16, 2);
 
@@ -33,6 +34,17 @@ void saveConfigCallback()
   shouldSaveConfig = true;
 }
 
+void hardResetESP()
+{
+  lcd.setCursor(0, 1);
+  lcd.print("Hard Resetting... ");
+  Serial.println("Hard Resetting FS... ");
+
+  SPIFFS.format();
+  wifiManager.resetSettings();
+  delay(2000);
+  ESP.restart();
+}
 
 void setup()
 {
@@ -44,6 +56,8 @@ void setup()
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("  Initializing");
+
+  // read configuration from FS json
   // read configuration from FS json
   Serial.println("mounting FS...");
 
@@ -97,16 +111,31 @@ void setup()
   // The extra parameters to be configured (can be either global or just in the setup)
   // After connecting, parameter.getValue() will get you the configured value
   // id/name placeholder/prompt default length
-  WiFiManagerParameter custom_api_server("server", "Forecaster API Server", api_server, 60);
+
+  // WiFiManager
+
+
+
+  // Local intialization. Once its business is done, there is no need to keep it around
 
   // set config save notify callback
   wifiManager.setSaveConfigCallback(saveConfigCallback);
 
-  // set static ip
-  //  wifiManager.setSTAStaticIPConfig(IPAddress(10, 0, 1, 99), IPAddress(10, 0, 1, 1), IPAddress(255, 255, 255, 0));
-
   // add all your parameters here
+  WiFiManagerParameter custom_api_server("server", "Forecaster API Server", api_server, 60);
   wifiManager.addParameter(&custom_api_server);
+
+  // reset settings - for testing
+  // wifiManager.resetSettings();
+
+  // set minimu quality of signal so it ignores AP's under that quality
+  // defaults to 8%
+  // wifiManager.setMinimumSignalQuality();
+
+  // sets timeout until configuration portal gets turned off
+  // useful to make it all retry or go to sleep
+  // in seconds
+  // wifiManager.setTimeout(120);
 
   // fetches ssid and pass and tries to connect
   // if it does not connect it starts an access point with the specified name
@@ -166,59 +195,59 @@ void loop()
 {
   lcd.setCursor(0, 0);
   lcd.print("      Ready     ");
-  // lcd.noBacklight();
-  // is configuration portal requested?
   if (digitalRead(TRIGGER_PIN) == LOW)
   {
-    // set configportal timeout
-    wifiManager.setConfigPortalTimeout(timeout);
-    Serial.println("Started Config Portal");
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("90sec Web Portal");
-    lcd.setCursor(0, 1);
-    lcd.print("Config over Wifi");
-    delay(700);
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("SSID:      ");
-    lcd.setCursor(0, 1);
-    lcd.print("The Forecaster");
-    delay(3000);
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("PW: forecaster");
-    lcd.setCursor(0, 1);
-    lcd.print("    -itkmitl");
-    delay(3000);
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print(" Webpage ");
-    lcd.setCursor(0, 1);
-    lcd.print(" IP: 192.168.4.1");
-    // lcd.backlight();
-    if (!wifiManager.startConfigPortal("The Forecaster", "forecaster-itkmitl"))
-    {
-      Serial.println("Config Portal Timeout... restarting");
-      delay(3000);
-      // reset and try again, or maybe put it to deep sleep
-      ESP.restart();
-      delay(5000);
-    }
-
-    // if you get here you have connected to the WiFi
-    Serial.println("connected...yeey :)");
+    hardResetESP();
+    // Serial.println("Started Config Portal");
+    // lcd.clear();
+    // lcd.setCursor(0, 0);
+    // lcd.print("90sec Web Portal");
+    // lcd.setCursor(0, 1);
+    // lcd.print("Config over Wifi");
+    // delay(700);
+    // lcd.clear();
+    // lcd.setCursor(0, 0);
+    // lcd.print("SSID:      ");
+    // lcd.setCursor(0, 1);
+    // lcd.print("The Forecaster");
+    // delay(3000);
+    // lcd.clear();
+    // lcd.setCursor(0, 0);
+    // lcd.print("PW: forecaster");
+    // lcd.setCursor(0, 1);
+    // lcd.print("    -itkmitl");
+    // delay(3000);
+    // lcd.clear();
+    // lcd.setCursor(0, 0);
+    // lcd.print(" Webpage ");
+    // lcd.setCursor(0, 1);
+    // lcd.print(" IP: 192.168.4.1");
   }
 
   // Server POST Request
-  currentMillis = millis();  //get the current "time" (actually the number of milliseconds since the program started)
-  if (currentMillis - startMillis >= 5000)  //test whether the period has elapsed
+  currentMillis = millis();                // get the current "time" (actually the number of milliseconds since the program started)
+  if (currentMillis - startMillis >= 5000) // test whether the period has elapsed
   {
+    WiFiClient espWClient;
+    HTTPClient http;
+    String result;
+    doc["temperature"] = 20.2;
+    doc["humidity"] = 60;
+    doc["barometric_pressure"] = 1100;
+    doc["light_intensity"] = 40;
+    serializeJson(doc, result);
+    http.begin(espWClient, api_server);
+    http.addHeader("Content-Type", "application/json");
+    int httpResponseCode = http.POST(result);
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    Serial.println(api_server);
+    // Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
+    // Free resources
+    http.end();
 
-
-    startMillis = currentMillis;  //IMPORTANT to save the start time of the current LED state.
+    startMillis = currentMillis; // IMPORTANT to save the start time of the current LED state.
   }
-
 
   // put your main code here, to run repeatedly:
 }
