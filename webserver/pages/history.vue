@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 useHead({
   title: 'Sensor History - The Forecaster',
   meta: [
@@ -11,8 +11,8 @@ useHead({
 </script>
 
 <template>
-    <v-main class="ma-6" style="height: 100vh">
-      <h1>History</h1>
-    </v-main>
-  </template>
+  <v-main class="ma-6" style="height: 100vh">
+    <h1>History</h1>
+  </v-main>
+</template>
   

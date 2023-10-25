@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 function navNavigate(page: number) {
   switch (page) {
     case 0:
@@ -13,9 +13,7 @@ function navNavigate(page: number) {
 
 <script lang="ts">
 export default {
-  data: () => ({
-
-  }),
+  data: () => ({}),
   methods: {},
 };
 </script>
@@ -23,12 +21,12 @@ export default {
 <template>
   <v-card>
     <v-layout>
-      <v-navigation-drawer expand-on-hover rail permanent location="bottom">
+      <v-navigation-drawer expand-on-hover location="bottom" permanent rail>
         <v-list>
           <v-list-item
-            prepend-icon="mdi-weather-cloudy"
-            title="The Forcaster"
-            subtitle="ESP-Based Weather Solutions"
+              prepend-icon="mdi-weather-cloudy"
+              subtitle="ESP-Based Weather Solutions"
+              title="The Forcaster"
           ></v-list-item>
         </v-list>
 
@@ -36,20 +34,20 @@ export default {
 
         <v-list density="compact" nav>
           <v-list-item
-            prepend-icon="mdi-home"
-            title="Home"
-            value="home"
-            @click="() => {navNavigate(0)}"
+              prepend-icon="mdi-home"
+              title="Home"
+              value="home"
+              @click="() => {navNavigate(0)}"
           ></v-list-item>
           <v-list-item
-            prepend-icon="mdi-history"
-            title="History"
-            value="history"
-            @click="() => {navNavigate(1)}"
+              prepend-icon="mdi-history"
+              title="History"
+              value="history"
+              @click="() => {navNavigate(1)}"
           ></v-list-item>
         </v-list>
       </v-navigation-drawer>
-      <slot />
+      <slot/>
     </v-layout>
   </v-card>
 </template>
