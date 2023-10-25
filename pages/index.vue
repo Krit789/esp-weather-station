@@ -21,9 +21,9 @@ import Credit from "~/components/Credit.vue";
     </svg>
   </div>
   <div class="columns-4 text-center">
-    <img src="../asset_img/GY-BMP280.svg">
-    <img>
-    <img>
+    <img alt="" src="../asset_img/GY-BMP280.svg">
+<!--    <img>-->
+<!--    <img>-->
   </div>
   <div id="Credit">
     <Credit/>
