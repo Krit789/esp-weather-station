@@ -4,7 +4,6 @@
     text-align: center
 }
 
-
 .credit-txt {
     font-size: 22px;
 }
@@ -21,7 +20,7 @@
     padding: 40px 20px !important;
     border-radius: 32px;
     vertical-align: middle;
-    background: rgba(0, 0, 255, 0.05);
+    /*background: rgba(0, 0, 255, 0.05);*/
     --tile-background-color: unset;
 }
 
