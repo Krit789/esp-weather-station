@@ -9,10 +9,11 @@ body {
 
 .rainbow-dash, .rainbow-dash-s, .rainbow-dash-l {
     margin: 0 auto;
+    /*height: 100% !important;*/
 }
 
 .rainbow-dash {
-    max-width: 222px;
+    max-width: 182px;
 }
 
 .rainbow-dash-s {

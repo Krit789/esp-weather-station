@@ -7,7 +7,7 @@ import '~/assets/stylesheets/index.css';
 <template>
   <div class="ma-10 text-center" style="margin-bottom: 50px;margin-top:20px">
     <h1 class="text-5xl font-bold pt-2">The Forecast Station</h1>
-    <img alt="" class="img rainbow-dash pt-2" src="../asset_img/rainbow.svg" width="25%">
+    <img alt="" class="rainbow-dash pt-2" src="/images/rainbow-line.webp">
     <p class="mt-3" style="font-size:16px;">Predicting weather from surrounding readings from sensors</p>
   </div>
   <div class="columns-2 text-center">
@@ -22,34 +22,38 @@ import '~/assets/stylesheets/index.css';
   </div>
   <div class="grid grid-cols-3 text-center" style="align-content: center;">
     <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
-      <p class="text-sm">Photoresistor as a light detector</p><img class="img" src="../asset_img/Light_Sensor.svg"
-                                                                   width="100%"></div>
+      <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
+                                                                   src="../asset_img/Light_Sensor.svg" width="100%">
+    </div>
     <div style="margin: auto">
       <div><span class="text-2xl">NodeMCU ESP8266</span>
         <p class="text-sm">NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg extender board</p></div>
-      <div class="columns-2"><img class="img" src="../asset_img/NodeMCU%20ESP8266-1.svg" width="100%"><img class="img"
-                                                                                                           src="../asset_img/NodeMCU%20ESP8266-2.svg"
-                                                                                                           width="70%">
+      <div class="columns-2"><img alt="" class="img" src="../asset_img/NodeMCU%20ESP8266-1.svg" width="100%"><img alt=""
+                                                                                                                  class="img"
+                                                                                                                  src="../asset_img/NodeMCU%20ESP8266-2.svg"
+                                                                                                                  width="70%">
       </div>
     </div>
     <div class="invisible" style="margin: auto"><span class="text-2xl">GY-BMP280</span>
-      <p class="text-sm">High precision Atmospheric Pressure Sensor Module</p><img class="img"
+      <p class="text-sm">High precision Atmospheric Pressure Sensor Module</p><img alt=""
+                                                                                   class="img"
                                                                                    src="../asset_img/GY-BMP280.svg"
                                                                                    width="96%"></div>
-  </div>
-  <div class="grid grid-cols-3 text-center" style="align-content: center;">
+
     <div style="margin: auto"><span class="text-2xl">GY-BMP280</span>
-      <p class="text-sm">High precision Atmospheric Pressure Sensor Module</p><img class="img"
+      <p class="text-sm">High precision Atmospheric Pressure Sensor Module</p><img alt=""
+                                                                                   class="img"
                                                                                    src="../asset_img/GY-BMP280.svg"
                                                                                    width="96%"></div>
     <div style="margin: auto">
       <div><span class="text-2xl">LCD module</span>
         <p class="text-sm">Liquid crystal display as another output </p></div>
-      <img class="img" src="../asset_img/LCD%20module.svg" width="70%">
+      <img alt="" class="img" src="../asset_img/LCD%20module.svg" width="70%">
     </div>
     <div style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
-      <p class="text-sm">Photoresistor as a light detector</p><img class="img" src="../asset_img/Light_Sensor.svg"
-                                                                   width="100%"></div>
+      <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
+                                                                   src="../asset_img/Light_Sensor.svg" width="100%">
+    </div>
   </div>
   <!--  <div>-->
   <!--    <svg width="25000" height="5">-->
