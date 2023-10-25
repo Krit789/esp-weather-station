@@ -12,11 +12,12 @@ import '~/assets/stylesheets/global.css';
   <div class="credit_container">
 
     <h1 class="credit-header" id="About">About Us</h1>
+    <img class="rainbow-dash" src="/images/rainbow-line.webp" alt="">
 
-    <div class="flex flex-col">
+    <div class="flex flex-col mt-7">
       <div class="flex flex-row justify-center">
 
-        <div id="Best" class="contact-card-box flex flex-row align-middle mx-2">
+        <div id="Best" class="contact-card-box flex flex-row align-middle">
           <img class="profile-img" src="/images/credit/28_Bess.webp" alt="">
           <div class="flex flex-col justify-center ml-5">
             <p class="abt-name credit-txt credit-name">Kanisorn Somsriagsornsang</p>
@@ -24,7 +25,7 @@ import '~/assets/stylesheets/global.css';
           </div>
         </div>
 
-        <div id="Krit" class="contact-card-box flex flex-row align-middle mx-2">
+        <div id="Krit" class="contact-card-box flex flex-row align-middle">
           <img class="profile-img" src="/images/credit/30_Krit.webp" alt="">
           <div class="flex flex-col justify-center ml-5">
             <p class="abt-name credit-txt credit-name">Jarukrit Sripaploen</p>
@@ -36,7 +37,7 @@ import '~/assets/stylesheets/global.css';
 
       <div class="flex flex-row justify-center mt-4">
 
-        <div id="Best" class="contact-card-box flex flex-row align-middle mx-2">
+        <div id="Best" class="contact-card-box flex flex-row align-middle">
           <img class="profile-img" src="/images/credit/64_Japan.webp" alt="">
           <div class="flex flex-col justify-center ml-5">
             <p class="abt-name credit-txt credit-name">Napat Wetchapun</p>
@@ -44,7 +45,7 @@ import '~/assets/stylesheets/global.css';
           </div>
         </div>
 
-        <div id="Krit" class="contact-card-box flex flex-row align-middle mx-2">
+        <div id="Krit" class="contact-card-box flex flex-row align-middle">
           <img class="profile-img" src="/images/credit/89_Tae.webp" alt="">
           <div class="flex flex-col justify-center ml-5">
             <p class="abt-name credit-txt credit-name">Tanakrit Supprasit</p>

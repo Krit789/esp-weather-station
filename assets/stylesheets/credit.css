@@ -1,8 +1,13 @@
 .credit-header {
     font-weight: 600;
-    font-size: 36px;
-    margin-bottom: 25px;
+    font-size: 42px;
+    /*margin-bottom: 25px;*/
     text-align: center
+}
+
+.rainbow-dash {
+    max-width: 160px;
+    margin: 0 auto;
 }
 
 .credit-txt {
@@ -35,8 +40,9 @@
     /*box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px !important;*/
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 22px !important;
-    padding: 18px 28px;
+    padding: 14px 28px;
     min-width: 522px;
+    margin: 0 8px;
 }
 
 .no-opacity {
