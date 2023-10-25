@@ -1,1 +1,0 @@
-import{_ as s,q as t,m as o,s as e}from"./entry.98e87812.js";const c={},n={class:"ma-10"},_=e("h1",{class:"text-2xl font-bold"},"The Forecaster",-1),a=e("p",null,"Weather System",-1),r=[_,a];function d(l,i){return o(),t("div",n,r)}const f=s(c,[["render",d]]);export{f as default};
