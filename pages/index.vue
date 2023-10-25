@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import '~/assets/stylesheets/global.css';
 import '~/assets/stylesheets/index.css';
+import Credit from "~/components/Credit.vue";
 </script>
 
 
@@ -24,6 +25,7 @@ import '~/assets/stylesheets/index.css';
     <img>
     <img>
   </div>
+  <div id="Credit">
+    <Credit/>
+  </div>
 </template>
-<script setup lang="ts">
-</script>
