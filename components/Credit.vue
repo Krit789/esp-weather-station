@@ -8,7 +8,7 @@ import '~/assets/stylesheets/global.css';
   <div class="credit_container">
 
     <h1 id="About" class="credit-header">About Us</h1>
-    <img alt="" class="rainbow-dash-s" src="/images/rainbow-line.webp">
+    <img alt="" class="rainbow-dash-s" src="/assets/images/rainbow-line.webp">
 
     <div class="flex flex-col  mt-7">
       <div class="flex flex-row flex-wrap justify-center">
