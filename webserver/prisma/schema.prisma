@@ -12,5 +12,5 @@ model sensor_data {
   temperature         Float    @db.Real
   humidity            Float    @db.Real
   barometric_pressure Float    @db.Real
-  light_intensity     Float    @db.Real
+  gas                 Float    @db.Real
 }

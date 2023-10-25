@@ -8,11 +8,15 @@
 #include <ArduinoJson.h> //https://github.com/bblanchon/ArduinoJson
 #include <LCD_I2C.h>
 #include <ESP8266HTTPClient.h>
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BME680.h"
+
 // select which pin will trigger the configuration portal when set to LOW
 #define TRIGGER_PIN 0
+#define SEALEVELPRESSURE_HPA (1013.25)
 
 u_short timeout = 90; // seconds to run for
-
+Adafruit_BME680 bme; // I2C
 // define your default values here, if there are different values in config.json, they are overwritten.
 char api_server[60];
 
@@ -189,39 +193,32 @@ void setup()
 
   Serial.println("local ip");
   Serial.println(WiFi.localIP());
+
+  // End of WiFi 
+
+  if (!bme.begin()) {
+    Serial.println("Could not find a valid BME680 sensor on SPI, check wiring!");
+    while (1);
+  }
+
+    // Set up oversampling and filter initialization
+  bme.setTemperatureOversampling(BME680_OS_8X);
+  bme.setHumidityOversampling(BME680_OS_2X);
+  bme.setPressureOversampling(BME680_OS_4X);
+  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
+  bme.setGasHeater(320, 150); // 320*C for 150 ms
+
 }
 
 void loop()
 {
-  lcd.setCursor(0, 0);
-  lcd.print("      Ready     ");
+  if (! bme.performReading()) {
+    Serial.println("Failed to perform reading :(");
+    return;
+  }
   if (digitalRead(TRIGGER_PIN) == LOW)
   {
     hardResetESP();
-    // Serial.println("Started Config Portal");
-    // lcd.clear();
-    // lcd.setCursor(0, 0);
-    // lcd.print("90sec Web Portal");
-    // lcd.setCursor(0, 1);
-    // lcd.print("Config over Wifi");
-    // delay(700);
-    // lcd.clear();
-    // lcd.setCursor(0, 0);
-    // lcd.print("SSID:      ");
-    // lcd.setCursor(0, 1);
-    // lcd.print("The Forecaster");
-    // delay(3000);
-    // lcd.clear();
-    // lcd.setCursor(0, 0);
-    // lcd.print("PW: forecaster");
-    // lcd.setCursor(0, 1);
-    // lcd.print("    -itkmitl");
-    // delay(3000);
-    // lcd.clear();
-    // lcd.setCursor(0, 0);
-    // lcd.print(" Webpage ");
-    // lcd.setCursor(0, 1);
-    // lcd.print(" IP: 192.168.4.1");
   }
 
   // Server POST Request
@@ -231,10 +228,10 @@ void loop()
     WiFiClient espWClient;
     HTTPClient http;
     String result;
-    doc["temperature"] = 20.2;
-    doc["humidity"] = 60;
-    doc["barometric_pressure"] = 1100;
-    doc["light_intensity"] = 40;
+    doc["temperature"] = bme.temperature;
+    doc["humidity"] = bme.humidity;
+    doc["barometric_pressure"] = bme.pressure;
+    doc["gas"] = bme.gas_resistance / 1000.0;
     serializeJson(doc, result);
     http.begin(espWClient, api_server);
     http.addHeader("Content-Type", "application/json");
