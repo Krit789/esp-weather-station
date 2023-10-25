@@ -2,6 +2,8 @@
 
 @import 'fonts.css';
 
+
+
 body::before {
     content: "";
     background: url("../../asset_img/isad-background.jpg") no-repeat fixed;

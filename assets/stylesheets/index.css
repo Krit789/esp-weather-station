@@ -1,12 +1,35 @@
 
-img {
-    max-height: 220px;
-}
-
 .img {
     background-repeat: no-repeat;
     margin: 0 auto;
 }
+
+.main-body {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.sensor-box {
+    border: black 3px;
+    border-style: solid none;
+    padding: 12px 22px;
+    margin: 0 0 52px 0;
+    /*border-radius: 12px;*/
+}
+
+.sensor-box img {
+    max-height: 220px;
+}
+
+.table-forecast {
+    display: block;
+    max-width:930px;
+    max-height:400px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
 
 .rainbow {
     background-repeat: no-repeat;
