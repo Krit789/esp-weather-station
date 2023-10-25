@@ -32,38 +32,43 @@ import '~/assets/stylesheets/index.css';
   <div class="grid grid-cols-3 text-center" style="align-content: center;">
     <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
       <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
-                                                                   src="../asset_img/Light_Sensor.svg" width="100%">
+                                                                   src="../asset_img/Light_Sensor.png" width="100%">
     </div>
+    
+    
     <div style="margin: auto">
-      <div><span class="text-2xl">NodeMCU ESP8266</span><img class="rainbow" src="../asset_img/rainbow.svg" style="margin-top:-5px"
+      <div><span class="text-2xl">NodeMCU ESP8266</span><img class="rainbow" src="../asset_img/rainbow.svg"
+                                                             style="margin-top:-5px"
                                                              width="154px">
         <p class="text-sm">NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg extender board</p></div>
-      <div class="columns-2"><img class="img" src="../asset_img/NodeMCU%20ESP8266-1.svg" width="100%"><img class="img"
-                                                                                                           src="../asset_img/NodeMCU%20ESP8266-2.svg"
+      <div class="columns-2"><img class="img" src="../asset_img/NodeMCU_ESP8266-1.png" width="100%"><img class="img"
+                                                                                                           src="../asset_img/NodeMCU_ESP8266-2.png"
                                                                                                            width="70%">
       </div>
     </div>
     <div class="invisible" style="margin: auto"><span class="text-2xl">GY-BMP280</span>
       <p class="text-sm">High precision Atmospheric Pressure Sensor Module</p><img class="img"
-                                                                                   src="../asset_img/GY-BMP280.svg"
+                                                                                   src="../asset_img/GY-BMP280.png"
                                                                                    width="96%"></div>
   </div>
   <div class="grid grid-cols-3 text-center" style="align-content: center;">
     <div style="margin: auto"><span class="text-2xl">GY-BMP280</span><img class="rainbow" src="../asset_img/rainbow.svg"
                                                                           style="margin-top:-5px" width="154px">
       <p class="text-sm">High precision Atmospheric Pressure Sensor Module</p><img class="img"
-                                                                                   src="../asset_img/GY-BMP280.svg"
+                                                                                   src="../asset_img/GY-BMP280.png"
                                                                                    width="96%"></div>
-    <div style="margin: auto"><span class="text-2xl">LCD module</span><img class="rainbow" src="../asset_img/rainbow.svg"
+    <div style="margin: auto"><span class="text-2xl">LCD module</span><img class="rainbow"
+                                                                           src="../asset_img/rainbow.svg"
                                                                            width="154px">
       <p class="text-sm">Liquid crystal display as another output </p><img class="img"
-                                                                           src="../asset_img/LCD%20module.svg"
+                                                                           src="../asset_img/LCD_module.png"
                                                                            width="70%">
     </div>
-    <div style="margin: auto"><span class="text-2xl">LDR Light Sensor</span><img class="rainbow" src="../asset_img/rainbow.svg"
+    <div style="margin: auto"><span class="text-2xl">LDR Light Sensor</span><img class="rainbow"
+                                                                                 src="../asset_img/rainbow.svg"
                                                                                  style="margin-top:-2px"
                                                                                  width="154px">
-      <p class="text-sm">Photoresistor as a light detector</p><img class="img" src="../asset_img/Light_Sensor.svg"
+      <p class="text-sm">Photoresistor as a light detector</p><img class="img" src="../asset_img/Light_Sensor.png"
                                                                    width="100%"></div>
   </div>
   <br>
@@ -80,7 +85,7 @@ import '~/assets/stylesheets/index.css';
 
   <div style="margin:10px;margin-left:20px;margin-bottom:20px">
     <p class="text-3xl" style="margin-bottom:10px">FORECASTING<img src="../asset_img/rainbow.svg" width="80px"></p>
-    <img class="rainbow" src="../asset_img/table_forecast.svg" width="40%">
+    <img class="rainbow" src="../asset_img/table_forecast.png" width="40%">
     <p style="margin-left:30px;margin-top:10px">ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ
       ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti algorith ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น
       โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย
@@ -88,7 +93,7 @@ import '~/assets/stylesheets/index.css';
       <br>- หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81)
       <br>- หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81)
       <br>- โดยค่า P0 คือค่าความดันที่ระดับน้ำทะเล หาได้จากสมการ
-      <img src="../asset_img/formula.svg" style="margin:10px" width="400px">
+      <img src="../asset_img/formula.png" style="margin:10px" width="400px">
       <br>P0 = ค่าความดันที่ระดับน้ำทะเล
       <br>P = ค่าความดันที่วัดได้
       <br>h = ความสูงจากระดับน้ำทะเล
