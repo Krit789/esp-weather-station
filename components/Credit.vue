@@ -10,8 +10,8 @@ import '~/assets/stylesheets/global.css';
     <h1 id="About" class="credit-header">About Us</h1>
     <img alt="" class="rainbow-dash" src="/images/rainbow-line.webp">
 
-    <div class="flex flex-col mt-7">
-      <div class="flex flex-row justify-center">
+    <div class="flex flex-col  mt-7">
+      <div class="flex flex-row flex-wrap justify-center">
 
         <div id="Best" class="contact-card-box flex flex-row align-middle">
           <img alt="" class="profile-img" src="/images/credit/28_Bess.webp">
@@ -31,7 +31,7 @@ import '~/assets/stylesheets/global.css';
 
       </div>
 
-      <div class="flex flex-row justify-center mt-4">
+      <div class="flex flex-wrap flex-row justify-center mt-4">
 
         <div id="Best" class="contact-card-box flex flex-row align-middle">
           <img alt="" class="profile-img" src="/images/credit/64_Japan.webp">
