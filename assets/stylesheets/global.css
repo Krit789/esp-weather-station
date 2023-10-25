@@ -4,7 +4,7 @@
 
 body::before {
     content: "";
-    background: url("../images/isad-background.jpg") no-repeat fixed;
+    background: url("../../asset_img/isad-background.jpg") no-repeat fixed;
     background-size: cover;
     position: fixed;
     top: 0;
