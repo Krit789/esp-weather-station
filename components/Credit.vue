@@ -1,7 +1,6 @@
-<script lang="ts">
+<script>
 import '~/assets/stylesheets/credit.css';
 import '~/assets/stylesheets/global.css';
-
 </script>
 
 
