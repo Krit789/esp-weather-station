@@ -2,9 +2,17 @@
 
 @import 'fonts.css';
 
-body {
-    background: #fff url("../../asset_img/isad-background.jpg") no-repeat fixed;
+body::before {
+    content: "";
+    background: url("../../asset_img/isad-background.jpg") no-repeat fixed;
     background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3; /* Change the opacity value as needed */
+    z-index: -1;
 }
 
 
