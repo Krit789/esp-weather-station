@@ -16,7 +16,7 @@
 #define SEALEVELPRESSURE_HPA (1013.25)
 
 u_short timeout = 90; // seconds to run for
-Adafruit_BME680 bme; // I2C
+Adafruit_BME680 bme;  // I2C
 // define your default values here, if there are different values in config.json, they are overwritten.
 char api_server[60];
 
@@ -82,19 +82,11 @@ void setup()
 
         configFile.readBytes(buf.get(), size);
 
-#if defined(ARDUINOJSON_VERSION_MAJOR) && ARDUINOJSON_VERSION_MAJOR >= 6
         DynamicJsonDocument json(1024);
         auto deserializeError = deserializeJson(json, buf.get());
         serializeJson(json, Serial);
         if (!deserializeError)
         {
-#else
-        DynamicJsonBuffer jsonBuffer;
-        JsonObject &json = jsonBuffer.parseObject(buf.get());
-        json.printTo(Serial);
-        if (json.success())
-        {
-#endif
           Serial.println("\nparsed json");
           strcpy(api_server, json["api_server"]);
         }
@@ -112,25 +104,14 @@ void setup()
   }
   // end read
 
-  // The extra parameters to be configured (can be either global or just in the setup)
-  // After connecting, parameter.getValue() will get you the configured value
-  // id/name placeholder/prompt default length
-
-  // WiFiManager
-
-
-
   // Local intialization. Once its business is done, there is no need to keep it around
 
   // set config save notify callback
   wifiManager.setSaveConfigCallback(saveConfigCallback);
 
   // add all your parameters here
-  WiFiManagerParameter custom_api_server("server", "Forecaster API Server", api_server, 60);
+  WiFiManagerParameter custom_api_server("server", "Forecaster API Server (http only)", api_server, 60);
   wifiManager.addParameter(&custom_api_server);
-
-  // reset settings - for testing
-  // wifiManager.resetSettings();
 
   // set minimu quality of signal so it ignores AP's under that quality
   // defaults to 8%
@@ -166,12 +147,7 @@ void setup()
   if (shouldSaveConfig)
   {
     Serial.println("saving config");
-#if defined(ARDUINOJSON_VERSION_MAJOR) && ARDUINOJSON_VERSION_MAJOR >= 6
     DynamicJsonDocument json(1024);
-#else
-    DynamicJsonBuffer jsonBuffer;
-    JsonObject &json = jsonBuffer.createObject();
-#endif
     json["api_server"] = api_server;
 
     File configFile = SPIFFS.open("/config.json", "w");
@@ -179,14 +155,8 @@ void setup()
     {
       Serial.println("failed to open config file for writing");
     }
-
-#if defined(ARDUINOJSON_VERSION_MAJOR) && ARDUINOJSON_VERSION_MAJOR >= 6
     serializeJson(json, Serial);
     serializeJson(json, configFile);
-#else
-    json.printTo(Serial);
-    json.printTo(configFile);
-#endif
     configFile.close();
     // end save
   }
@@ -194,25 +164,27 @@ void setup()
   Serial.println("local ip");
   Serial.println(WiFi.localIP());
 
-  // End of WiFi 
+  // End of WiFi
 
-  if (!bme.begin()) {
+  if (!bme.begin())
+  {
     Serial.println("Could not find a valid BME680 sensor on SPI, check wiring!");
-    while (1);
+    while (1)
+      ;
   }
 
-    // Set up oversampling and filter initialization
+  // Set up oversampling and filter initialization
   bme.setTemperatureOversampling(BME680_OS_8X);
   bme.setHumidityOversampling(BME680_OS_2X);
   bme.setPressureOversampling(BME680_OS_4X);
   bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
   bme.setGasHeater(320, 150); // 320*C for 150 ms
-
 }
 
 void loop()
 {
-  if (! bme.performReading()) {
+  if (!bme.performReading())
+  {
     Serial.println("Failed to perform reading :(");
     return;
   }
@@ -237,14 +209,20 @@ void loop()
     http.addHeader("Content-Type", "application/json");
     int httpResponseCode = http.POST(result);
     Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
-    Serial.println(api_server);
-    // Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
+    if (httpResponseCode > 0)
+    {
+      Serial.println(httpResponseCode);
+    }
+    else
+    {
+      Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
+      Serial.printf("Request: %s", http.getString());
+    }
+    Serial.println(result);
     // Free resources
     http.end();
 
     startMillis = currentMillis; // IMPORTANT to save the start time of the current LED state.
   }
-
   // put your main code here, to run repeatedly:
 }
