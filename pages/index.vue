@@ -5,6 +5,13 @@ import '~/assets/stylesheets/index.css';
 
 
 <template>
+  <div class="Sooksan_Header">
+    <div class="sook_north">
+      <div class="sook_text">King Mongkut's Institute of Technology Ladkrabang</div>
+    </div>
+    <div class="sook_south"></div>
+  </div>
+  
   <div class="ma-10 text-center" style="margin-bottom: 50px;margin-top:20px">
     <h1 class="text-5xl font-bold pt-2">The Forecast Station</h1>
     <img alt="" class="rainbow-dash pt-2" src="/images/rainbow-line.webp">

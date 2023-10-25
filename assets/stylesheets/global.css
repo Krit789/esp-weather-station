@@ -3,7 +3,8 @@
 @import 'fonts.css';
 
 body {
-    /*zoom: 80%;*/
+    background: #fff url("../../asset_img/isad-background.jpg") no-repeat fixed;
+    background-size: cover;
 }
 
 
