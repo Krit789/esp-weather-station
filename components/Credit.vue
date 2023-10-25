@@ -5,10 +5,6 @@ import '~/assets/stylesheets/global.css';
 
 
 <template>
-  <!--  <div class="flex flex-col credit_container">-->
-  <!--    <div>01</div>-->
-  <!--    <div>02</div>-->
-  <!--  </div>-->
   <div class="credit_container">
 
     <h1 class="credit-header" id="About">About Us</h1>
