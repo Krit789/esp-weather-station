@@ -14,11 +14,9 @@ import '~/assets/stylesheets/index.css';
 
   <div class="ma-10 text-center" style="margin-bottom: 50px;margin-top:20px">
     <h1 class="text-5xl font-bold pt-2">The Forecast Station</h1>
-    <img alt="" class="rainbow-dash pt-2" src="/images/rainbow-line.webp">
+    <img alt="" class="rainbow-dash pt-2" style="margin-top:-10px" src="/images/rainbow-line.webp">
     <p class="mt-3" style="font-size:16px;">Predicting weather from surrounding readings from sensors</p>
-    <h1 class="text-5xl font-bold">The Forecast Station</h1>
-    <img class="rainbow" style="border-width: 0px" width="25%" src="../asset_img/rainbow.svg">
-    <p>Predicting weather from surrounding readings from sensors</p>
+
   </div>
   <div class="columns-2 text-center">
     <p>asd;asp[d</p>
@@ -59,8 +57,9 @@ import '~/assets/stylesheets/index.css';
   </div>
 
   <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-    <p class="text-3xl" style="margin-bottom:10px">Forecasting<img width="80px" src="../asset_img/rainbow.svg"></p>
-    <p style="margin-left:30px">ใช้ระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti algorith ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย
+    <p class="text-3xl" style="margin-bottom:10px">FORECASTING<img width="80px" src="../asset_img/rainbow.svg"></p>
+    <img class="rainbow" width="40%" src="../asset_img/table_forecast.svg">
+    <p style="margin-left:30px;margin-top:10px">ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti algorith ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย
       <br>- หากความดันมีค่าตกหล่นจะใช้สมการ Z = 130 - (P0 / 81)
       <br>- หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81)
       <br>- หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81)
@@ -74,13 +73,13 @@ import '~/assets/stylesheets/index.css';
   </div>
 
   <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-    <p class="text-3xl" style="margin-bottom:10px">INPUT<img width="80px" src="../asset_img/rainbow.svg"></p>
-    <p style="margin-left:30px">รับข้อมูลจากสภาพแวดล้อมด้วย LDR Light sensor สำหรับระดับแสง และ GY-BMP280 สำหรับวัดอุณหภูมิ และ ความดันอากาศ รวมถึงระดับความสูงเหนือระดับน้ำทะเล</p>
+    <p class="text-3xl" style="margin-bottom:10px">CONNECTIVITY<img width="80px" src="../asset_img/rainbow.svg"></p>
+    <p style="margin-left:30px">เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย wifi และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
   </div>
 
   <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-    <p class="text-3xl" style="margin-bottom:10px">INPUT<img width="80px" src="../asset_img/rainbow.svg"></p>
-    <p style="margin-left:30px">รับข้อมูลจากสภาพแวดล้อมด้วย LDR Light sensor สำหรับระดับแสง และ GY-BMP280 สำหรับวัดอุณหภูมิ และ ความดันอากาศ รวมถึงระดับความสูงเหนือระดับน้ำทะเล</p>
+    <p class="text-3xl" style="margin-bottom:10px">OUTPUT<img width="80px" src="../asset_img/rainbow.svg"></p>
+    <p style="margin-left:30px">แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์ และ [some sort of data] ในหน้าจอ lcd บนตัวครื่อง</p>
   </div>
   <!--  <div>-->
   <!--    <svg width="25000" height="5">-->
