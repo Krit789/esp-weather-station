@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+import '~/assets/stylesheets/global.css';
+import '~/assets/stylesheets/index.css';
+</script>
+
+
 <template>
   <div class="ma-10 text-center" style="margin-bottom: 50px">
     <h1 class="text-5xl font-bold">The Forecast Station</h1>

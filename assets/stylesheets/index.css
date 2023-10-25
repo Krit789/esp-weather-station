@@ -1,0 +1,24 @@
+
+.first-box {
+    background-color: transparent;
+    height: calc(100vh - 150px + 64px);
+    padding-top: 20vh;
+}
+
+.location_container {
+    background: rgba(255, 255, 255, .90);
+    border-radius: 22px !important;
+
+}
+
+.index_parallax {
+    min-height: calc(100vh);
+}
+
+.index_text_stroke, .index_text_shadow {
+    -webkit-text-stroke: 0.1px black;
+}
+
+.index_text_shadow {
+    text-shadow: #ffdf5e 1px 0 10px;
+}

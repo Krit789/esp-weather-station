@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import 'fonts.css';
+
+body {
+    /*zoom: 80%;*/
+}
+
+v-btn {
+    color: #0373DE;
+    caret-color: #0373DE;
+}
+
+
+.main_container {
+    max-width: 1380px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-radius: 32px;
+}
+
+.img_background {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: clip;
+    min-height: 100vh;
+}
+
+.blur-effect {
+    background: rgba(245, 245, 247, .82);
+    backdrop-filter: blur(22px) saturate(1.86);
+    -webkit-backdrop-filter: blur(15px) saturate(86%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    --colornav-backdrop-filter-opacity: 1;
+    --colornav-bg-alpha: 0.8;
+    opacity: 1;
+}
+
+.blue_button {
+    background-color: #0373DE !important;
+    /*font-size: medium !important;*/
+    font-weight: bold;
+    color: white !important;
+    border-radius: 12px;
+    /*box-shadow: none !important;*/
+    /*text-transform: none;*/
+}
+
+.bg-table {
+    background: rgba(255, 255, 255, 0.35) !important;
+}
+
+.bg-table-items1 {
+    background: rgba(255, 255, 255, 0.20) !important;
+}
+
+
+body {
+    font-family: "Sarabun", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, "Roboto", sans-serif !important;
+}
+
+.text-h2 {
+    font-family: "Sarabun", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, "Roboto", sans-serif !important;
+    font-size: 95px !important;
+    margin-bottom: 40px !important;
+    text-wrap: none !important;
+}
+
+.text-h3 {
+    font-family: "Sarabun", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, "Roboto", sans-serif !important;
+
+}
+
+.text-h4 {
+    font-family: "Sarabun", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, "Roboto", sans-serif !important;
+}
+
+.text-h5 {
+    font-family: "Sarabun", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, "Roboto", sans-serif !important;
+}
+
