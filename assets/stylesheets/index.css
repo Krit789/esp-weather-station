@@ -1,4 +1,9 @@
 
+.img{
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
 .first-box {
     background-color: transparent;
     height: calc(100vh - 150px + 64px);
