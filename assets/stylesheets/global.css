@@ -7,6 +7,22 @@ body {
 }
 
 
+.rainbow-dash, .rainbow-dash-s, .rainbow-dash-l {
+    margin: 0 auto;
+}
+
+.rainbow-dash {
+    max-width: 222px;
+}
+
+.rainbow-dash-s {
+    max-width: 122px;
+}
+
+.rainbow-dash-l {
+    max-width: 322px;
+}
+
 .main_container {
     max-width: 1380px;
     padding-bottom: 32px;
