@@ -1,12 +1,21 @@
 <script lang="ts" setup>
 import '~/assets/stylesheets/global.css';
 import '~/assets/stylesheets/index.css';
-import Credit from "~/components/Credit.vue";
 </script>
 
 
 <template>
+  <div class="Sooksan_Header">
+    <div class="sook_north">
+      <div class="sook_text">King Mongkut's Institute of Technology Ladkrabang</div>
+    </div>
+    <div class="sook_south"></div>
+  </div>
+
   <div class="ma-10 text-center" style="margin-bottom: 50px;margin-top:20px">
+    <h1 class="text-5xl font-bold pt-2">The Forecast Station</h1>
+    <img alt="" class="rainbow-dash pt-2" src="/images/rainbow-line.webp">
+    <p class="mt-3" style="font-size:16px;">Predicting weather from surrounding readings from sensors</p>
     <h1 class="text-5xl font-bold">The Forecast Station</h1>
     <img class="rainbow" style="border-width: 0px" width="25%" src="../asset_img/rainbow.svg">
     <p>Predicting weather from surrounding readings from sensors</p>
@@ -22,7 +31,10 @@ import Credit from "~/components/Credit.vue";
     </svg>
   </div>
   <div class="grid grid-cols-3 text-center" style="align-content: center;">
-    <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span><p class="text-sm">Photoresistor as a light detector</p><img class="img" src="../asset_img/Light_Sensor.svg" width="100%"></div>
+    <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
+      <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
+                                                                   src="../asset_img/Light_Sensor.svg" width="100%">
+    </div>
     <div style="margin: auto">
       <div><span class="text-2xl">NodeMCU ESP8266</span><img class="rainbow" style="margin-top:-5px" width="154px" src="../asset_img/rainbow.svg"><p class="text-sm">NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg extender board</p></div>
       <div class="columns-2"><img class="img" src="../asset_img/NodeMCU%20ESP8266-1.svg" width="100%"><img class="img" src="../asset_img/NodeMCU%20ESP8266-2.svg" width="70%"></div>
@@ -70,6 +82,13 @@ import Credit from "~/components/Credit.vue";
     <p class="text-3xl" style="margin-bottom:10px">INPUT<img width="80px" src="../asset_img/rainbow.svg"></p>
     <p style="margin-left:30px">รับข้อมูลจากสภาพแวดล้อมด้วย LDR Light sensor สำหรับระดับแสง และ GY-BMP280 สำหรับวัดอุณหภูมิ และ ความดันอากาศ รวมถึงระดับความสูงเหนือระดับน้ำทะเล</p>
   </div>
+  <!--  <div>-->
+  <!--    <svg width="25000" height="5">-->
+  <!--      <line x1="0" y1="0" x2="25000" y2="0" style="stroke:rgb(0,0,0);stroke-width:5px"/>-->
+  <!--    </svg>-->
+  <!--  </div>-->
+  <Credit/>
+
 </template>
 <script setup lang="ts">
 </script>

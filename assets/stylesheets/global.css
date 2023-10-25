@@ -2,10 +2,36 @@
 
 @import 'fonts.css';
 
-body {
-    /*zoom: 80%;*/
+body::before {
+    content: "";
+    background: url("../../asset_img/isad-background.jpg") no-repeat fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3; /* Change the opacity value as needed */
+    z-index: -1;
 }
 
+
+.rainbow-dash, .rainbow-dash-s, .rainbow-dash-l {
+    margin: 0 auto;
+    /*height: 100% !important;*/
+}
+
+.rainbow-dash {
+    max-width: 182px;
+}
+
+.rainbow-dash-s {
+    max-width: 122px;
+}
+
+.rainbow-dash-l {
+    max-width: 322px;
+}
 
 .main_container {
     max-width: 1380px;

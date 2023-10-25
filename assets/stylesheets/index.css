@@ -1,5 +1,5 @@
 
-.img{
+.img {
     background-repeat: no-repeat;
     margin: 0 auto;
 }
@@ -30,4 +30,28 @@
 
 .index_text_shadow {
     text-shadow: #ffdf5e 1px 0 10px;
+}
+
+.sook_header {
+    width: 100%;
+}
+
+.sook_north {
+    background: #2242A6;
+    max-height: 25px;
+}
+
+.sook_south {
+    background: orange;
+    height: 0.5vh;
+}
+
+.sook_text {
+    font-size: 90%;
+    font-family: "Helvetica Neue", serif;
+    padding: 5px;
+    text-align: right;
+    color: white;
+    height: 100%;
+    margin-top: -7px;
 }
