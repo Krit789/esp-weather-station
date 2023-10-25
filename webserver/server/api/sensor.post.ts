@@ -1,10 +1,8 @@
-import {Prisma, PrismaClient} from "@prisma/client";
+import prisma from '../prisma'
 
 export default defineEventHandler(async (event) => {
-    const prisma = new PrismaClient();
     let postBody = await readBody(event);
-    let sensor_entry: Prisma.sensor_dataCreateInput = postBody
-    const sensor_data = await prisma.sensor_data.create({data: sensor_entry})
+    const sensor_data = await prisma.sensor_data.create({data: postBody})
     if (sensor_data) {
         return {
             status: 1,

@@ -1,8 +1,7 @@
-import {Prisma, PrismaClient} from "@prisma/client";
+import prisma from '../prisma'
 import {DateTime} from "luxon";
 
 export default defineEventHandler(async () => {
-    const prisma = new PrismaClient();
     const sensor_data = await prisma.sensor_data.findMany({
         where: {
             time: {
