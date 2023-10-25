@@ -20,16 +20,36 @@ import '~/assets/stylesheets/global.css';
         <div id="Best" class="contact-card-box flex flex-row align-middle mx-2">
           <img class="profile-img" src="/images/credit/28_Bess.webp" alt="">
           <div class="flex flex-col justify-center ml-5">
-            <p class="abt-name credit-txt credit-name">Kanisorn Somsriagsornsang </p>
+            <p class="abt-name credit-txt credit-name">Kanisorn Somsriagsornsang</p>
             <p class="tabt-detail credit-txt">65070028</p>
           </div>
         </div>
 
         <div id="Krit" class="contact-card-box flex flex-row align-middle mx-2">
-          <img class="profile-img" src="/images/credit/28_Bess.webp" alt="">
+          <img class="profile-img" src="/images/credit/30_Krit.webp" alt="">
           <div class="flex flex-col justify-center ml-5">
-            <p class="abt-name credit-txt credit-name">Jarukrit Sripaploen </p>
+            <p class="abt-name credit-txt credit-name">Jarukrit Sripaploen</p>
             <p class="tabt-detail credit-txt">65070030</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex flex-row justify-center mt-4">
+
+        <div id="Best" class="contact-card-box flex flex-row align-middle mx-2">
+          <img class="profile-img" src="/images/credit/64_Japan.webp" alt="">
+          <div class="flex flex-col justify-center ml-5">
+            <p class="abt-name credit-txt credit-name">Napat Wetchapun</p>
+            <p class="tabt-detail credit-txt">65070064</p>
+          </div>
+        </div>
+
+        <div id="Krit" class="contact-card-box flex flex-row align-middle mx-2">
+          <img class="profile-img" src="/images/credit/89_Tae.webp" alt="">
+          <div class="flex flex-col justify-center ml-5">
+            <p class="abt-name credit-txt credit-name">Tanakrit Supprasit</p>
+            <p class="tabt-detail credit-txt">65070089</p>
           </div>
         </div>
 
