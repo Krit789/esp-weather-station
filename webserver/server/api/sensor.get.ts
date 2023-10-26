@@ -9,6 +9,10 @@ export default defineEventHandler(async () => {
                 lte: DateTime.now().toJSDate(),
             },
         },
+        orderBy: {
+            time: 'desc'
+        },
+        take: 600,
     });
     return {
         status: 1,
