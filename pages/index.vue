@@ -126,6 +126,6 @@ import '~/assets/stylesheets/index.css';
       <img alt="" class="img pt-3" src="../assets/images/teams/tae.webp" width="500">
     </div>
   </div>
-  <Credit/>
+
 
 </template>
