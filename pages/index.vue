@@ -91,20 +91,21 @@ import '~/assets/stylesheets/index.css';
         <br>- หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- โดยค่า P0 คือค่าความดันที่ระดับน้ำทะเล หาได้จากสมการ
-        <img src="../assets/images/formula.png" style="margin:10px" width="400px" alt="">
+        <img alt="" src="../assets/images/formula.png" style="margin:10px" width="400px">
         <br>P0 = ค่าความดันที่ระดับน้ำทะเล
         <br>P = ค่าความดันที่วัดได้
         <br>h = ความสูงจากระดับน้ำทะเล
         <br>T = อุนหภูมิที่วัดได้
       </p>
 
-      <p class="text-3xl mt-3" style="margin-bottom:10px">CONNECTIVITY<img src="../assets/images/rainbow.svg"
-                                                                           width="80px" alt="">
+      <p class="text-3xl mt-3" style="margin-bottom:10px">CONNECTIVITY<img alt=""
+                                                                           src="../assets/images/rainbow.svg" width="80px">
       </p>
       <p class="ml-7">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
         และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
 
-      <p class="text-3xl ml-2.5 mb-5" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <p class="text-3xl mt-3 ml-2.5 mb-5" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg"
+                                                                                 width="80px"></p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
         และ
