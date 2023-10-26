@@ -8,13 +8,15 @@
     max-width: 1280px;
     margin: 0 auto;
 }
-.title{
+
+.title {
     font-size: 1.875rem !important; /* 30px */
     line-height: 2.25rem !important; /* 36px */
     margin-left: 0.625rem !important; /* 10px */
     margin-bottom: 0.625rem !important; /* 10px */
     margin-top: 0.75rem !important; /* 12px */
 }
+
 .sensor-box {
     border: black 3px;
     border-style: solid none;
@@ -29,8 +31,8 @@
 
 .table-forecast {
     display: block;
-    max-width:930px;
-    max-height:400px;
+    max-width: 930px;
+    max-height: 400px;
     width: auto;
     height: auto;
     margin: 0 auto;

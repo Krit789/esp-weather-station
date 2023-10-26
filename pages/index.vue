@@ -21,10 +21,22 @@ import '~/assets/stylesheets/index.css';
 
     </div>
     <div class="grid grid-cols-2 text-center">
-      <img alt="" class="img" src="../assets/images/BMP-680.png" width="250">
+      <img alt="" class="img" src="../assets/images/japan_arduino.webp" width="500">
       <p>asd;asp[d</p>
+
+      <img alt="" class="img pt-3" src="../assets/images/teams/best.webp" width="500">
+      <img alt="" class="img pt-3" src="../assets/images/teams/japan.webp" width="500">
+
+      <img alt="" class="img pt-3" src="../assets/images/teams/krit.webp" width="500">
+      <img alt="" class="img pt-3" src="../assets/images/teams/tae.webp" width="500">
+
+
     </div>
     <br>
+    <div class="grid grid-cols-2 text-center">
+
+    </div>
+
 
     <div id="sensors" class="sensor-box">
       <div class="grid grid-cols-3 text-center" style="align-content: center;">
