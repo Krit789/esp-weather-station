@@ -20,8 +20,8 @@ import '~/assets/stylesheets/index.css';
       <p class="mt-3" style="font-size:16px;">Predicting weather from surrounding readings from sensors</p>
 
     </div>
-    <div class="columns-2 text-center">
-      <p>asd;asp[d</p>
+    <div class="grid grid-cols-2 text-center">
+      <img alt="" class="img" src="../assets/images/microcontroller1.jpg">
       <p>asd;asp[d</p>
     </div>
     <br>
@@ -30,59 +30,62 @@ import '~/assets/stylesheets/index.css';
       <div class="grid grid-cols-3 text-center" style="align-content: center;">
         <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
           <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
-                                                                       src="../asset_img/Light_Sensor.png" width="100%">
+                                                                       src="../assets/images/Light_Sensor.png" width="100%">
         </div>
 
 
         <div style="margin: auto">
-          <div><span class="text-2xl">NodeMCU ESP8266</span><img class="rainbow" src="../asset_img/rainbow.svg"
+          <div><span class="text-2xl">NodeMCU ESP8266</span><img class="rainbow" src="../assets/images/rainbow.svg"
                                                                  style="margin-top:-5px"
                                                                  width="154px">
             <p class="text-sm">NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg extender board</p></div>
-          <div class="columns-2"><img class="img" src="../asset_img/NodeMCU_ESP8266-1.png" width="100%"><img class="img"
-                                                                                                             src="../asset_img/NodeMCU_ESP8266-2.png"
-                                                                                                             width="70%">
+          <div class="columns-2"><img class="img" src="../assets/images/NodeMCU_ESP8266-1.png" width="100%"><img class="img" src="../assets/images/NodeMCU_ESP8266-2.png" width="70%">
           </div>
         </div>
         <div class="invisible" style="margin: auto"><span class="text-2xl">BME680</span>
           <p class="text-sm">High-accuracy gas, pressure, humidity, and temperature sensor</p><img class="img"
-                                                                                       src="../asset_img/GY-BMP280.png"
+                                                                                       src="../assets/images/GY-BMP280.png"
                                                                                        width="96%"></div>
       </div>
-      <div class="grid grid-cols-3 text-center" style="align-content: center;">
+      <div class="grid grid-cols-2 text-center" style="align-content: center;">
         <div style="margin: auto"><span class="text-2xl">BME680</span><img class="rainbow"
-                                                                              src="../asset_img/rainbow.svg"
+                                                                              src="../assets/images/rainbow.svg"
                                                                               style="margin-top:-5px" width="154px">
           <p class="text-sm">High-accuracy gas, pressure, humidity, and temperature sensor</p><img class="img"
-                                                                                       src="../asset_img/GY-BMP280.png"
-                                                                                       width="96%"></div>
+                                                                                       src="../assets/images/BMP-680.png"></div>
         <div style="margin: auto"><span class="text-2xl">LCD module</span><img class="rainbow"
-                                                                               src="../asset_img/rainbow.svg"
+                                                                               src="../assets/images/rainbow.svg"
                                                                                width="154px">
           <p class="text-sm">Liquid crystal display as another output </p><img class="img"
-                                                                               src="../asset_img/LCD_module.png"
+                                                                               src="../assets/images/LCD_module.png"
                                                                                width="70%">
         </div>
       </div>
     </div>
 
-    <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-      <p class="text-3xl" style="margin-bottom:10px">INPUT<img src="../asset_img/rainbow.svg" width="80px"></p>
-      <p style="margin-left:30px">รับข้อมูลจากสภาพแวดล้อมด้วย BME680
+    <div style="margin:10px;margin-left:10px;margin-bottom:20px">
+      <p class="text-3xl" style="margin-bottom:10px">ABSTRACT<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <p style="margin-left:30px">&emsp;โปรเจ็กนี้เป็นการสร้างโปรแกรมสำหรับ Microcontroller เพื่ออ่านค่าต่างๆในสภาพแวดล้อมและนำไปใช้พยากรณ์อากาศในพื้นที่ท้องถิ่นด้วย Zembretti Algorithm
+        โดยจะแสดงค่าที่วัดได้บน Web server ที่สร้างขึ้นมาและบนตัวหน้าจอ LCD บนเครื่อง, Microcontroller คือ NodeMCU ESP8266, ค่าที่ทำการวัดคือ สภาพแวดล้อม ความดัน, อุณหภูมิ, สภาพอากาศ และแก้ส</p>
+    </div>
+
+    <div style="margin:10px;margin-left:10px;margin-bottom:20px">
+      <p class="text-3xl" style="margin-bottom:10px">INPUT<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <p style="margin-left:30px">&emsp;รับข้อมูลจากสภาพแวดล้อมด้วย BME680
         สำหรับนำอุณหภูมิ ความดันอากาศ และ แก๊สเพื่อนำไปพยากรอากาศ</p>
     </div>
 
-    <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-      <p class="text-3xl" style="margin-bottom:10px">FORECASTING<img src="../asset_img/rainbow.svg" width="80px"></p>
-      <img class="table-forecast" src="../asset_img/table_forecast.png" alt="">
-      <p style="margin-left:30px;margin-top:10px">ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ
-        ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti algorith ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น
+    <div style="margin:10px;margin-left:10px;margin-bottom:20px">
+      <p class="text-3xl" style="margin-bottom:10px">FORECASTING<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <img class="table-forecast" src="../assets/images/table_forecast.png" alt="">
+      <p style="margin-left:30px;margin-top:10px">&emsp;ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ
+        ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti Algorithm ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น
         โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย
         <br>- หากความดันมีค่าตกหล่นจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- โดยค่า P0 คือค่าความดันที่ระดับน้ำทะเล หาได้จากสมการ
-        <img src="../asset_img/formula.png" style="margin:10px" width="400px">
+        <img src="../assets/images/formula.png" style="margin:10px" width="400px">
         <br>P0 = ค่าความดันที่ระดับน้ำทะเล
         <br>P = ค่าความดันที่วัดได้
         <br>h = ความสูงจากระดับน้ำทะเล
@@ -90,23 +93,18 @@ import '~/assets/stylesheets/index.css';
       </p>
     </div>
 
-    <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-      <p class="text-3xl" style="margin-bottom:10px">CONNECTIVITY<img src="../asset_img/rainbow.svg" width="80px"></p>
-      <p style="margin-left:30px">เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย wifi
+    <div style="margin:10px;margin-left:10px;margin-bottom:20px">
+      <p class="text-3xl" style="margin-bottom:10px">CONNECTIVITY<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <p style="margin-left:30px">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
         และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
     </div>
 
-    <div style="margin:10px;margin-left:20px;margin-bottom:20px">
-      <p class="text-3xl" style="margin-bottom:10px">OUTPUT<img src="../asset_img/rainbow.svg" width="80px"></p>
+    <div style="margin:10px;margin-left:10px;margin-bottom:20px">
+      <p class="text-3xl" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg" width="80px"></p>
       <p style="margin-left:30px">
-        แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์ และ
-        ข้อมูลที่วัดได้แบบReal Time รวมถึง Status ในหน้าจอ lcd บนตัวครื่อง</p>
+        &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์ และ
+        ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ในหน้าจอ LCD บนตัวครื่อง</p>
     </div>
-    <!--  <div>-->
-    <!--    <svg width="25000" height="5">-->
-    <!--      <line x1="0" y1="0" x2="25000" y2="0" style="stroke:rgb(0,0,0);stroke-width:5px"/>-->
-    <!--    </svg>-->
-    <!--  </div>-->
     <Credit/>
 
   </div>
