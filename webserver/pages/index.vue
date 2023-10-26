@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { DateTime } from "luxon";
+
 useHead({
   title: "The Forecaster",
   meta: [
@@ -58,32 +59,75 @@ const forecastData: Record<number, string> = {
     36: "Sunny"
 };
 
+const forecastImage: Record<number, string> = {
+    1: "/images/clear.jpg",
+    2: "/images/clear.jpg",
+    3: "/images/cloudy.jpg",
+    4: "/images/cloudy.jpg",
+    5: "/images/rainy.jpg",
+    6: "/images/rainy.jpg",
+    7: "/images/rainy.jpg",
+    8: "/images/rainy.jpg",
+    9: "/images/rainy.jpg",
+    10: "/images/clear.jpg",
+    11: "/images/clear.jpg",
+    12: "/images/rainy.jpg",
+    13: "/images/rainy.jpg",
+    14: "/images/rainy.jpg",
+    15: "/images/rainy.jpg",
+    16: "/images/rainy.jpg",
+    17: "/images/rainy.jpg",
+    18: "/images/rainy.jpg",
+    19: "/images/rainy.jpg",
+    20: "/images/clear.jpg",
+    21: "/images/clear.jpg",
+    22: "/images/stormclearing.jpg",
+    23: "/images/cloudy.jpg",
+    24: "/images/cloudy.jpg",
+    25: "/images/rainy.jpg",
+    26: "/images/unknown.jpg",
+    27: "/images/stormclearing.jpg",
+    28: "/images/stormclearing.jpg",
+    29: "/images/stormclearing.jpg",
+    30: "/images/stormclearing.jpg",
+    31: "/images/stormclearing.jpg",
+    32: "/images/rainy.jpg",
+    33: "/images/rainy.jpg",
+    34: "/images/cloudy.jpg",
+    35: "/images/sunnycloudy.jpg",
+    36: "/images/clear.jpg"
+};
+
+
 function getForecastText(forecastNumber: number | null | undefined): string {
     if (!forecastNumber) return "Unknown Forecast";
     return forecastData[forecastNumber] || "Unknown Forecast";
 }
 
+function getForecastImage(forecastNumber: number | null | undefined): string {
+    if (!forecastNumber) return "/images/unknown.jpg";
+    return forecastImage[forecastNumber] || "/images/unknown.jpg";
+}
+
 useIntervalFn(() => {
-  console.log(`refreshing the data again ${new Date().toISOString()}`);
+  // console.log(`refreshing the data again ${new Date().toISOString()}`);
   refresh(); // will call the 'todos' endpoint, just above
-}, 60000); // call it back every 3s
+}, 60000); // call it back every 1 min
 </script>
 <template>
-  <v-main class="ma-6 mb-15">
+  <v-main class="ma-6 mb-15 rounded-lg" style="background-color: #f2fbff;">
     <h1>Current Outlook</h1>
     <v-container>
       <v-row>
         <v-col cols="12">
           <v-card>
             <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              :src="getForecastImage(36)"
               height="300px"
               cover
             ></v-img>
             <v-card-title> Zambretti Forecast </v-card-title>
-            <v-card-item class="font-weight-light text-h3 text-right">{{ getForecastText(data?.message.zambretti) }} ({{
-              data?.message.zambretti
-            }})</v-card-item>
+            <v-card-item class="font-weight-light text-h3 text-right"><p class="pb-1">{{ getForecastText(data?.message.zambretti) }}</p></v-card-item>
           </v-card>
         </v-col>
       </v-row>
