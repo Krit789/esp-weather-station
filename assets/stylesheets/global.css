@@ -3,7 +3,6 @@
 @import 'fonts.css';
 
 
-
 body::before {
     content: "";
     background: url("../images/isad-background.jpg") no-repeat fixed;

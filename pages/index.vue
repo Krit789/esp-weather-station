@@ -21,7 +21,7 @@ import '~/assets/stylesheets/index.css';
 
     </div>
     <div class="grid grid-cols-2 text-center">
-      <img alt="" class="img" src="../assets/images/microcontroller1.jpg">
+      <img alt="" class="img" src="../assets/images/BMP-680.png" width="250">
       <p>asd;asp[d</p>
     </div>
     <br>
@@ -31,37 +31,39 @@ import '~/assets/stylesheets/index.css';
         <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
           <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
                                                                        src="../assets/images/Light_Sensor.png"
-                                                                       width="100%">
+                                                                       width="348">
         </div>
 
 
         <div style="margin: auto">
-          <div><span class="text-2xl">NodeMCU ESP8266</span><img class="rainbow" src="../assets/images/rainbow.svg"
-                                                                 style="margin-top:-5px"
-                                                                 width="154px">
+          <div><span class="text-2xl">NodeMCU ESP8266</span><img alt="" class="rainbow"
+                                                                 src="../assets/images/rainbow.svg"
+                                                                 style="margin-top:-5px" width="154px">
             <p class="text-sm">NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg extender board</p></div>
-          <div class="columns-2"><img class="img" src="../assets/images/NodeMCU_ESP8266-1.png" width="100%"><img
-              class="img" src="../assets/images/NodeMCU_ESP8266-2.png" width="70%">
+          <div class="columns-2"><img class="img" src="../assets/images/NodeMCU_ESP8266-1.png" width="620" alt=""><img
+              class="img" src="../assets/images/NodeMCU_ESP8266-2.png" width="724" alt="">
           </div>
         </div>
         <div class="invisible" style="margin: auto"><span class="text-2xl">BME680</span>
           <p class="text-sm">High-accuracy gas, pressure, humidity, and temperature sensor</p><img class="img"
                                                                                                    src="../assets/images/GY-BMP280.png"
-                                                                                                   width="96%"></div>
+                                                                                                   width="96%" alt="">
+        </div>
       </div>
       <div class="grid grid-cols-2 text-center" style="align-content: center;">
         <div style="margin: auto"><span class="text-2xl">BME680</span><img class="rainbow"
                                                                            src="../assets/images/rainbow.svg"
-                                                                           style="margin-top:-5px" width="154px">
+                                                                           style="margin-top:-5px" width="154px" alt="">
           <p class="text-sm">High-accuracy gas, pressure, humidity, and temperature sensor</p><img class="img"
-                                                                                                   src="../assets/images/BMP-680.png">
+                                                                                                   src="../assets/images/BMP-680.png"
+                                                                                                   alt="">
         </div>
         <div style="margin: auto"><span class="text-2xl">LCD module</span><img class="rainbow"
                                                                                src="../assets/images/rainbow.svg"
-                                                                               width="154px">
+                                                                               width="154px" alt="">
           <p class="text-sm">Liquid crystal display as another output </p><img class="img"
                                                                                src="../assets/images/LCD_module.png"
-                                                                               width="70%">
+                                                                               width="70%" alt="">
         </div>
       </div>
     </div>
@@ -74,8 +76,8 @@ import '~/assets/stylesheets/index.css';
         โดยจะแสดงค่าที่วัดได้บน Web server ที่สร้างขึ้นมาและบนตัวหน้าจอ LCD บนเครื่อง, Microcontroller คือ NodeMCU
         ESP8266, ค่าที่ทำการวัดคือ สภาพแวดล้อม ความดัน, อุณหภูมิ, สภาพอากาศ และแก้ส</p>
 
-      <p class="text-3xl mt-3" style="margin-bottom:10px">INPUT<img src="../assets/images/rainbow.svg" width="80px"
-                                                                    alt=""></p>
+      <p class="text-3xl mt-3" style="margin-bottom:10px">INPUT<img alt="" src="../assets/images/rainbow.svg"
+                                                                    width="80px"></p>
       <p style="margin-left:30px">&emsp;รับข้อมูลจากสภาพแวดล้อมด้วย BME680
         สำหรับนำอุณหภูมิ ความดันอากาศ และ แก๊สเพื่อนำไปพยากรอากาศ</p>
 
@@ -83,7 +85,7 @@ import '~/assets/stylesheets/index.css';
         <img alt="" src="../assets/images/rainbow.svg"
              width="80px">
       </p>
-      <img class="table-forecast" src="../assets/images/table_forecast.png" alt="">
+      <img alt="" class="table-forecast" src="../assets/images/table_forecast.png">
       <p style="margin-left:30px;margin-top:10px">&emsp;ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ
         ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti Algorithm ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น
         โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย
@@ -91,19 +93,22 @@ import '~/assets/stylesheets/index.css';
         <br>- หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81)
         <br>- โดยค่า P0 คือค่าความดันที่ระดับน้ำทะเล หาได้จากสมการ
-        <img src="../assets/images/formula.png" style="margin:10px" width="400px">
+        <img src="../assets/images/formula.png" style="margin:10px" width="400px" alt="">
         <br>P0 = ค่าความดันที่ระดับน้ำทะเล
         <br>P = ค่าความดันที่วัดได้
         <br>h = ความสูงจากระดับน้ำทะเล
         <br>T = อุนหภูมิที่วัดได้
       </p>
 
-      <p class="text-3xl mt-3" style="margin-bottom:10px">CONNECTIVITY<img src="../assets/images/rainbow.svg" width="80px">
+      <p class="text-3xl mt-3" style="margin-bottom:10px">CONNECTIVITY<img src="../assets/images/rainbow.svg"
+                                                                           width="80px" alt="">
       </p>
       <p style="margin-left:30px">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
         และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
 
-      <p class="text-3xl mt-3" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <p class="text-3xl mt-3" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg" width="80px"
+                                                                     alt="">
+      </p>
       <p style="margin-left:30px">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
         และ
