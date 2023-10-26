@@ -12,7 +12,7 @@ import '~/assets/stylesheets/index.css';
     <div class="sook_south"></div>
   </div>
 
-  <div class="main-body select-none">
+  <div class="main-body">
     <div class="ma-10 text-center" style="margin-bottom: 50px;margin-top:20px">
       <h1 class="text-5xl mb-4 font-bold pt-2">The Forecaster</h1>
       <img alt="" class="rainbow-dash" src="/images/rainbow-line.webp" style="margin-top:-10px">
@@ -99,6 +99,7 @@ import '~/assets/stylesheets/index.css';
       </p>
       <p class="ml-7">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
         และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
+
       <p class="title" >OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"></p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
@@ -114,6 +115,15 @@ import '~/assets/stylesheets/index.css';
           <NuxtLink class="text-amber-800 font-bold ml-2" to="https://www.youtube.com/watch?v=MtTdZTJHwPA" target="_blank">Link Youtube</NuxtLink>
         </div>
       </div>
+    </div>
+
+    <Credit/>
+    <div class="flex flex-wrap">
+      <img alt="" class="img pt-3" src="../assets/images/teams/best.webp" width="500">
+      <img alt="" class="img pt-3" src="../assets/images/teams/japan.webp" width="500">
+
+      <img alt="" class="img pt-3" src="../assets/images/teams/krit.webp" width="500">
+      <img alt="" class="img pt-3" src="../assets/images/teams/tae.webp" width="500">
     </div>
   </div>
   <Credit/>
