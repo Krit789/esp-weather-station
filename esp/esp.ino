@@ -112,6 +112,7 @@ void beginWebUpload(){
     }
     Serial.println(result);
     http.end();
+    lcd.clear();
 }
 
 void displayForecast(int seapressure){
