@@ -118,7 +118,7 @@ void beginWebUpload()
   lcd.clear();
 }
 
-int serverForecast(int seapressure)
+void serverForecast(int seapressure)
 {
   if (pressureArray[9] > 0 and pressureArray[0] > 0)
   {
