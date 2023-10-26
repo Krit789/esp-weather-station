@@ -18,7 +18,50 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 const { pending, data, error, refresh } = await useFetch("/api/sensor_current");
-const z_forecast = new Array("Settled fine", "Fine weather", "Becoming fine", "Fine, becoming less settled", "Fine, possible showers", "Fairly fine, improving", "Fairly fine, possible showers early", "Fairly fine, showery later", "Showery early, improving", "Changeable, mending", "Fairly fine, showers likely", "Rather unsettled clearing later", "Unsettled, probably improving", "Showery, bright intervals", "Showery, becoming less settled", "Changeable, some rain", "Unsettled, short fine intervals", "Unsettled, rain later", "Unsettled, some rain", "Mostly very unsettled", "Occasional rain, worsening", "Rain at times, very unsettled", "Rain at frequent intervals", "Rain, very unsettled", "Stormy, may improve", "Stormy, much rain"); 
+
+const forecastData: Record<number, string> = {
+    1: "Settled Fine",
+    2: "Fine Weather",
+    3: "Fine Becoming Less Settled",
+    4: "Fairly Fine Showery Later",
+    5: "Showery Becoming more unsettled",
+    6: "Unsettled, Rain later",
+    7: "Rain at times, worse later.",
+    8: "Rain at times, becoming very unsettled",
+    9: "Very Unsettled, Rain",
+    10: "Settled Fine",
+    11: "Fine Weather",
+    12: "Fine, Possibly showers",
+    13: "Fairly Fine , Showers likely",
+    14: "Showery Bright Intervals",
+    15: "Changeable some rain",
+    16: "Unsettled, rain at times",
+    17: "Rain at Frequent Intervals",
+    18: "Very Unsettled, Rain",
+    19: "Stormy, much rain",
+    20: "Settled Fine",
+    21: "Fine Weather",
+    22: "Becoming Fine",
+    23: "Fairly Fine, Improving",
+    24: "Fairly Fine, Possibly showers, early",
+    25: "Showery Early, Improving",
+    26: "Changeable Mending",
+    27: "Rather Unsettled Clearing Later",
+    28: "Unsettled, Probably Improving",
+    29: "Unsettled, short fine Intervals",
+    30: "Very Unsettled, Finer at times",
+    31: "Stormy, possibly improving",
+    32: "Stormy, much rain",
+    33: "Rainy",
+    34: "Cloudy",
+    35: "Sunny Cloudy",
+    36: "Sunny"
+};
+
+function getForecastText(forecastNumber: number | null | undefined): string {
+    if (!forecastNumber) return "Unknown Forecast";
+    return forecastData[forecastNumber] || "Unknown Forecast";
+}
 
 useIntervalFn(() => {
   console.log(`refreshing the data again ${new Date().toISOString()}`);
@@ -38,7 +81,7 @@ useIntervalFn(() => {
               cover
             ></v-img>
             <v-card-title> Zambretti Forecast </v-card-title>
-            <v-card-item class="font-weight-light text-h3 text-right">{{ z_forecast.at(data?.message.zambretti-1) }} ({{
+            <v-card-item class="font-weight-light text-h3 text-right">{{ getForecastText(data?.message.zambretti) }} ({{
               data?.message.zambretti
             }})</v-card-item>
           </v-card>
