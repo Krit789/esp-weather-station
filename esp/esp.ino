@@ -35,6 +35,7 @@ int pressureArray[10] = {0}; // here we store the pressure readings
 byte counter = 0;
 byte Z = 0;
 byte month;
+byte delta_time = 0;
 
 unsigned long currentMillis, startMillis;
 
@@ -60,7 +61,7 @@ void lcdCenterPrint(char *text)
   lcd.print(" ");
   // Prints to both lcd and serial terminal
   byte len = String(text).length();
-  lcd.setCursor((20 - len) / 2, 1);
+  lcd.setCursor((16 - len) / 2, 1);
   lcd.print(text);
 }
 
@@ -194,7 +195,7 @@ int calc_zambretti(int curr_pressure, int prev_pressure, byte mon)
   if (curr_pressure < prev_pressure)
   {
     // FALLING
-    if (mon >= 4 and mon <= 9)
+    if (mon >= 3 and mon <= 7)
     // summer
     {
       if (curr_pressure >= 1030)
@@ -238,7 +239,7 @@ int calc_zambretti(int curr_pressure, int prev_pressure, byte mon)
   else if (curr_pressure > prev_pressure)
   {
     // RAISING
-    if (mon >= 4 and mon <= 9)
+    if (mon >= 3 and mon <= 7)
     {
       // summer
       if (curr_pressure >= 1030)
@@ -413,7 +414,7 @@ void setup()
   superPrint("    Local IP    ", 0, 0);
   Serial.println(WiFi.localIP());
   int len = WiFi.localIP().toString().length();
-  lcd.setCursor((20 - len) / 2, 1);
+  lcd.setCursor((16 - len) / 2, 1);
   lcd.print(WiFi.localIP());
 
   // End of WiFi
@@ -464,7 +465,7 @@ void loop()
   else
   {
     lcd.setCursor(0, 0);
-    sprintf(buffer1, "T%.2f%cC H%.1f%%", bme.temperature, char(223), bme.humidity);
+    sprintf(buffer1, "T%.2f%cC H%.2f%%", bme.temperature, char(223), bme.humidity);
     lcd.print(buffer1);
 
     // lcd.setCursor(0, 1);
@@ -482,7 +483,9 @@ void loop()
   currentMillis = millis();                 // get the current "time" (actually the number of milliseconds since the program started)
   if (currentMillis - startMillis >= 60000) // test whether the period has elapsed (in this case 5 seconds)
   {
-
+    delta_time++;
+    if (delta_time > 10) {    // every minute we increment delta_time, then every 10 minutes
+      delta_time = 0;         // we store the value in the array 
     if (counter == 10)  // if we read 10 values and filled up the array, we shift the array content
     {
       for (int i = 0; i < 9; i++) {   // we shift the array one position to the left
@@ -493,6 +496,7 @@ void loop()
     else {        // this code fills up the pressure array value by value until is filled up
       pressureArray[counter] = seapressure;
       counter++;
+    }
     }
     Z = calc_zambretti((pressureArray[9] + pressureArray[8] + pressureArray[7]) / 3, (pressureArray[0] + pressureArray[1] + pressureArray[2]) / 3, month);
     beginWebUpload(); // Create a POST Request to api server
