@@ -20,9 +20,9 @@ import '~/assets/stylesheets/index.css';
       <p class="mt-3" style="font-size:16px;">Predicting weather from surrounding readings from sensors</p>
 
     </div>
-    <div class="grid grid-cols-2 text-center">
+    <div class="grid grid-cols-2 gap-10 text-center">
       <img alt="" class="img" src="../assets/images/microcontroller1.jpg">
-      <p>asd;asp[d</p>
+      <img alt="" class="img" src="../assets/images/microcontroller2.jpg">
     </div>
     <br>
 
@@ -99,12 +99,21 @@ import '~/assets/stylesheets/index.css';
       </p>
       <p class="ml-7">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
         และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
-
       <p class="title" >OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"></p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
-        และ
-        ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ในหน้าจอ LCD บนตัวครื่อง</p>
+        และ ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ในหน้าจอ LCD บนตัวครื่อง
+      </p>
+      <div class="grid grid-cols-2 text-6xl text-center m-10 mt-16">
+        <div class="flex flex-row flex-auto justify-center align-middle">
+          <img class="w-12" src="../assets/icons/website.svg" alt="">
+          <NuxtLink class="text-amber-400 font-bold ml-5" to="https://www.youtube.com/watch?v=MtTdZTJHwPA" target="_blank">Link Website</NuxtLink>
+        </div>
+        <div class="flex flex-row flex-auto justify-center align-middle">
+          <img class="w-24" src="../assets/icons/youtube.svg" alt="">
+          <NuxtLink class="text-amber-800 font-bold ml-2" to="https://www.youtube.com/watch?v=MtTdZTJHwPA" target="_blank">Link Youtube</NuxtLink>
+        </div>
+      </div>
     </div>
   </div>
   <Credit/>
