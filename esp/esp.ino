@@ -34,6 +34,7 @@ bool shouldSaveConfig = false; // flag for saving data
 int pressureArray[10] = {0}; // here we store the pressure readings
 byte counter = 0;
 byte Z = 0;
+byte Z_DB = 0;
 byte month;
 byte delta_time = 0;
 
@@ -85,7 +86,7 @@ void beginWebUpload()
   doc["barometric_pressure"] = bme.pressure / 100.0;
   doc["gas"] = bme.gas_resistance / 1000.0;
   doc["altitude"] = bme.readAltitude(SEALEVELPRESSURE_HPA);
-  doc["zambretti"] = Z;
+  doc["zambretti"] = Z_DB;
   serializeJson(doc, result);
   http.begin(espWClient, api_server);
   lcd.setCursor(0, 1);
@@ -115,6 +116,362 @@ void beginWebUpload()
   Serial.println(result);
   http.end();
   lcd.clear();
+}
+
+int serverForecast(int seapressure)
+{
+  if (pressureArray[9] > 0 and pressureArray[0] > 0)
+  {
+    if (pressureArray[9] + pressureArray[8] + pressureArray[7] - pressureArray[0] - pressureArray[1] - pressureArray[2] >= 3)
+    {
+      // RAISING
+      Serial.print("[>] ");
+      if (Z < 2)
+      {
+        Serial.write("Settled Fine");
+      }
+      else if (Z > 1 and Z <= 2)
+      {
+        Serial.write("Fine Weather");
+      }
+      else if (Z > 2 and Z <= 3)
+      {
+        Serial.write("Becoming Fine                   ");
+      }
+      else if (Z > 3 and Z <= 4)
+      {
+        Serial.write("Fine Becoming   Less Settled    ");
+      }
+      else if (Z > 4 and Z <= 5)
+      {
+        Serial.write("Fine  Possibly   Showers        ");
+      }
+      else if (Z > 5 and Z <= 6)
+      {
+        Serial.write("Fairly Fine     Improving       ");
+      }
+      else if (Z > 6 and Z <= 7)
+      {
+        Serial.write("Fairly Fine Pos.Showers, early  ");
+      }
+      else if (Z > 7 and Z <= 8)
+      {
+        Serial.write("Fairly Fine     Showery Later   ");
+      }
+      else if (Z > 8 and Z <= 9)
+      {
+        Serial.write("Showery Early   Improving       ");
+      }
+      else if (Z > 9 and Z <= 10)
+      {
+        Serial.write("Changeable      Mending         ");
+      }
+      else if (Z > 10 and Z <= 11)
+      {
+        Serial.write("Fairly Fine     Showers likely  ");
+      }
+      else if (Z > 11 and Z <= 12)
+      {
+        Serial.write("Rather UnsettledClearing Later  ");
+      }
+      else if (Z > 12 and Z <= 13)
+      {
+        Serial.write("Unsettled Prob. Improving       ");
+      }
+      else if (Z > 13 and Z <= 14)
+      {
+        Serial.write("Showery Bright  Intervals       ");
+      }
+      else if (Z > 14 and Z <= 15)
+      {
+        Serial.write("Showery BecomingMore Unsettled  ");
+      }
+      else if (Z > 15 and Z <= 16)
+      {
+        Serial.write("Changeable      Some Rain       ");
+      }
+      else if (Z > 16 and Z <= 17)
+      {
+        Serial.write("Unsettled Short Fine Intervals  ");
+      }
+      else if (Z > 17 and Z <= 18)
+      {
+        Serial.write("Unsettled       Rain later      ");
+      }
+      else if (Z > 18 and Z <= 19)
+      {
+        Serial.write("Unsettled       Rain at time    ");
+      }
+      else if (Z > 19 and Z <= 20)
+      {
+        Serial.write("Very Unsettled  Finer at time   ");
+      }
+      else if (Z > 20 and Z <= 21)
+      {
+        Serial.write("Rain at times   Worse later     ");
+      }
+      else if (Z > 21 and Z <= 22)
+      {
+        Serial.write("Rain at times   Bec. Very Uns.  ");
+      }
+      else if (Z > 22 and Z <= 23)
+      {
+        Serial.write("Rain at Frequent Intervals      ");
+      }
+      else if (Z > 23 and Z <= 24)
+      {
+        Serial.write("Very Unsettled  Rain            ");
+      }
+      else if (Z > 24 and Z <= 25)
+      {
+        Serial.write("Stormy possibly Improving       ");
+      }
+      else if (Z > 25 and Z <= 26)
+      {
+        Serial.write("Stormy     Much Rain            ");
+      }
+    }
+
+    else if (pressureArray[0] + pressureArray[1] + pressureArray[2] - pressureArray[9] - pressureArray[8] - pressureArray[7] >= 3)
+    {
+      // FALLING
+      Serial.print("[<] ");
+      if (Z < 2)
+      {
+        Serial.write("Settled Fine                    ");
+      }
+      else if (Z > 1 and Z <= 2)
+      {
+        Serial.write("Fine Weather                    ");
+      }
+      else if (Z > 2 and Z <= 3)
+      {
+        Serial.write("Becoming Fine                   ");
+      }
+      else if (Z > 3 and Z <= 4)
+      {
+        Serial.write("Fine Becoming   Less Settled    ");
+      }
+      else if (Z > 4 and Z <= 5)
+      {
+        Serial.write("Fine  Possibly   Showers        ");
+      }
+      else if (Z > 5 and Z <= 6)
+      {
+        Serial.write("Fairly Fine     Improving       ");
+      }
+      else if (Z > 6 and Z <= 7)
+      {
+        Serial.write("Fairly Fine Pos.Showers, early  ");
+      }
+      else if (Z > 7 and Z <= 8)
+      {
+        Serial.write("Fairly Fine     Showery Later   ");
+      }
+      else if (Z > 8 and Z <= 9)
+      {
+        Serial.write("Showery Early   Improving       ");
+      }
+      else if (Z > 9 and Z <= 10)
+      {
+        Serial.write("Changeable      Mending         ");
+      }
+      else if (Z > 10 and Z <= 11)
+      {
+        Serial.write("Fairly Fine     Showers likely  ");
+      }
+      else if (Z > 11 and Z <= 12)
+      {
+        Serial.write("Rather UnsettledClearing Later  ");
+      }
+      else if (Z > 12 and Z <= 13)
+      {
+        Serial.write("Unsettled Prob. Improving       ");
+      }
+      else if (Z > 13 and Z <= 14)
+      {
+        Serial.write("Showery Bright  Intervals       ");
+      }
+      else if (Z > 14 and Z <= 15)
+      {
+        Serial.write("Showery BecomingMore Unsettled  ");
+      }
+      else if (Z > 15 and Z <= 16)
+      {
+        Serial.write("Changeable      Some Rain       ");
+      }
+      else if (Z > 16 and Z <= 17)
+      {
+        Serial.write("Unsettled Short Fine Intervals  ");
+      }
+      else if (Z > 17 and Z <= 18)
+      {
+        Serial.write("Unsettled       Rain later      ");
+      }
+      else if (Z > 18 and Z <= 19)
+      {
+        Serial.write("Unsettled       Rain at time    ");
+      }
+      else if (Z > 19 and Z <= 20)
+      {
+        Serial.write("Very Unsettled  Finer at time   ");
+      }
+      else if (Z > 20 and Z <= 21)
+      {
+        Serial.write("Rain at times   Worse later     ");
+      }
+      else if (Z > 21 and Z <= 22)
+      {
+        Serial.write("Rain at times   Bec. Very Uns.  ");
+      }
+      else if (Z > 22 and Z <= 23)
+      {
+        Serial.write("Rain at Frequent Intervals      ");
+      }
+      else if (Z > 23 and Z <= 24)
+      {
+        Serial.write("Very Unsettled  Rain            ");
+      }
+      else if (Z > 24 and Z <= 25)
+      {
+        Serial.write("Stormy possibly Improving       ");
+      }
+      else if (Z > 25 and Z <= 26)
+      {
+        Serial.write("Stormy     Much Rain            ");
+      }
+    }
+    else
+    {
+      // STEADY
+      Serial.print("[=] ");
+
+      if (Z < 2)
+      {
+        Serial.write("Settled Fine                    ");
+      }
+      else if (Z > 1 and Z <= 2)
+      {
+        Serial.write("Fine Weather                    ");
+      }
+      else if (Z > 2 and Z <= 3)
+      {
+        Serial.write("Becoming Fine                   ");
+      }
+      else if (Z > 3 and Z <= 4)
+      {
+        Serial.write("Fine Becoming   Less Settled    ");
+      }
+      else if (Z > 4 and Z <= 5)
+      {
+        Serial.write("Fine  Possibly   Showers        ");
+      }
+      else if (Z > 5 and Z <= 6)
+      {
+        Serial.write("Fairly Fine     Improving       ");
+      }
+      else if (Z > 6 and Z <= 7)
+      {
+        Serial.write("Fairly Fine Pos.Showers, early  ");
+      }
+      else if (Z > 7 and Z <= 8)
+      {
+        Serial.write("Fairly Fine     Showery Later   ");
+      }
+      else if (Z > 8 and Z <= 9)
+      {
+        Serial.write("Showery Early   Improving       ");
+      }
+      else if (Z > 9 and Z <= 10)
+      {
+        Serial.write("Changeable      Mending         ");
+      }
+      else if (Z > 10 and Z <= 11)
+      {
+        Serial.write("Fairly Fine     Showers likely  ");
+      }
+      else if (Z > 11 and Z <= 12)
+      {
+        Serial.write("Rather UnsettledClearing Later  ");
+      }
+      else if (Z > 12 and Z <= 13)
+      {
+        Serial.write("Unsettled Prob. Improving       ");
+      }
+      else if (Z > 13 and Z <= 14)
+      {
+        Serial.write("Showery Bright  Intervals       ");
+      }
+      else if (Z > 14 and Z <= 15)
+      {
+        Serial.write("Showery BecomingMore Unsettled  ");
+      }
+      else if (Z > 15 and Z <= 16)
+      {
+        Serial.write("Changeable      Some Rain       ");
+      }
+      else if (Z > 16 and Z <= 17)
+      {
+        Serial.write("Unsettled Short Fine Intervals  ");
+      }
+      else if (Z > 17 and Z <= 18)
+      {
+        Serial.write("Unsettled       Rain later      ");
+      }
+      else if (Z > 18 and Z <= 19)
+      {
+        Serial.write("Unsettled       Rain at time    ");
+      }
+      else if (Z > 19 and Z <= 20)
+      {
+        Serial.write("Very Unsettled  Finer at time   ");
+      }
+      else if (Z > 20 and Z <= 21)
+      {
+        Serial.write("Rain at times   Worse later     ");
+      }
+      else if (Z > 21 and Z <= 22)
+      {
+        Serial.write("Rain at times   Bec. Very Uns.  ");
+      }
+      else if (Z > 22 and Z <= 23)
+      {
+        Serial.write("Rain at Frequent Intervals      ");
+      }
+      else if (Z > 23 and Z <= 24)
+      {
+        Serial.write("Very Unsettled  Rain            ");
+      }
+      else if (Z > 24 and Z <= 25)
+      {
+        Serial.write("Stormy possibly Improving       ");
+      }
+      else if (Z > 25 and Z <= 26)
+      {
+        Serial.write("Stormy     Much Rain            ");
+      }
+    }
+  }
+  else
+  {
+    if (seapressure < 1005)
+    {
+      Serial.write("    Rainy                           ");
+    }
+    else if (seapressure >= 1005 and seapressure <= 1015)
+    {
+      Serial.write("    Cloudy                          ");
+    }
+    else if (seapressure > 1015 and seapressure < 1025)
+    {
+      // Serial.write("[=] ");
+      Serial.write("    Sunny Cloudy                    ");
+    }
+    else
+    {
+      Serial.write("    Sunny                           ");
+    }
+  }
 }
 
 void displayForecast(int seapressure)
@@ -503,7 +860,7 @@ void loop()
     hardResetESP();
   }
 
-  int seapressure = station2sealevel((int) (bme.pressure/100.0), (int)bme.readAltitude(SEALEVELPRESSURE_HPA), (int)bme.temperature);
+  int seapressure = station2sealevel((int)(bme.pressure / 100.0), (int)bme.readAltitude(SEALEVELPRESSURE_HPA), (int)bme.temperature);
 
   currentMillis = millis();                 // get the current "time" (actually the number of milliseconds since the program started)
   if (currentMillis - startMillis >= 60000) // test whether the period has elapsed (in this case 60 seconds)
