@@ -15,4 +15,5 @@ model sensor_data {
   barometric_pressure Float    @db.Float
   gas                 Float    @db.Float
   altitude            Float    @db.Float
+  zambretti           Int?     @db.UnsignedTinyInt
 }
