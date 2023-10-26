@@ -12,6 +12,8 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/luxon": "^3.3.2",
+    "@vueuse/core": "^10.5.0",
+    "@vueuse/nuxt": "^10.5.0",
     "nuxt": "^3.8.0",
     "prisma": "^5.5.2",
     "vite-plugin-vuetify": "^1.0.2",

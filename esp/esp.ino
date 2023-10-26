@@ -75,119 +75,144 @@ void hardResetESP()
   ESP.restart();
 }
 
-void beginWebUpload(){
-    WiFiClient espWClient;
-    HTTPClient http;
-    String result;
-    doc["temperature"] = bme.temperature;
-    doc["humidity"] = bme.humidity;
-    doc["barometric_pressure"] = bme.pressure;
-    doc["gas"] = bme.gas_resistance / 1000.0;
-    doc["altitude"] = bme.readAltitude(SEALEVELPRESSURE_HPA);
-    doc["zambretti"] = Z;
-    serializeJson(doc, result);
-    http.begin(espWClient, api_server);
-    lcd.setCursor(0, 1);
-    lcd.print(" Uploading Data ");
-    http.addHeader("Content-Type", "application/json");
-    int httpResponseCode = http.POST(result);
-    Serial.print("HTTP Response code: ");
-    if (httpResponseCode > 0)
+void beginWebUpload()
+{
+  WiFiClient espWClient;
+  HTTPClient http;
+  String result;
+  doc["temperature"] = bme.temperature;
+  doc["humidity"] = bme.humidity;
+  doc["barometric_pressure"] = bme.pressure / 100.0;
+  doc["gas"] = bme.gas_resistance / 1000.0;
+  doc["altitude"] = bme.readAltitude(SEALEVELPRESSURE_HPA);
+  doc["zambretti"] = Z;
+  serializeJson(doc, result);
+  http.begin(espWClient, api_server);
+  lcd.setCursor(0, 1);
+  lcd.print(" Uploading Data ");
+  http.addHeader("Content-Type", "application/json");
+  int httpResponseCode = http.POST(result);
+  Serial.print("HTTP Response code: ");
+  if (httpResponseCode > 0)
+  {
+    Serial.println(httpResponseCode);
+    if (httpResponseCode == 200)
     {
-      Serial.println(httpResponseCode);
-      if (httpResponseCode == 200)
-      {
 
-        lcd.setCursor(0, 1);
-        lcd.print(" Data Uploaded! ");
+      lcd.setCursor(0, 1);
+      lcd.print(" Data Uploaded! ");
+    }
+  }
+  else
+  {
+    Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
+    Serial.printf("Request: %s", http.getString());
+    lcd.setCursor(0, 0);
+    lcd.print("Upload Failed :(");
+    lcd.setCursor(0, 1);
+    lcd.print(http.errorToString(httpResponseCode).c_str());
+  }
+  Serial.println(result);
+  http.end();
+  lcd.clear();
+}
+
+void displayForecast(int seapressure)
+{
+  if (pressureArray[9] > 0 and pressureArray[0] > 0)
+  {
+    if (pressureArray[9] + pressureArray[8] + pressureArray[7] - pressureArray[0] - pressureArray[1] - pressureArray[2] >= 3)
+    {
+      // Raising Pressure
+      lcdCenterPrint("Raising");
+      if (Z < 3)
+      {
+        lcdCenterPrint("Sunny");
+      }
+      else if (Z >= 3 and Z <= 9)
+      {
+        lcdCenterPrint("Sunny Cloudy");
+      }
+      else if (Z > 9 and Z <= 17)
+      {
+        lcdCenterPrint("Cloudy");
+      }
+      else if (Z > 17)
+      {
+        lcdCenterPrint("Rainy");
+      }
+    }
+
+    else if (pressureArray[0] + pressureArray[1] + pressureArray[2] - pressureArray[9] - pressureArray[8] - pressureArray[7] >= 3)
+    {
+      // FALLING Pressure
+      lcdCenterPrint("Falling");
+      if (Z < 4)
+      {
+        lcdCenterPrint("Sunny");
+      }
+      else if (Z >= 4 and Z < 14)
+      {
+        lcdCenterPrint("Sunny Cloudy");
+      }
+      else if (Z >= 14 and Z < 19)
+      {
+        lcdCenterPrint("Worsening");
+      }
+      else if (Z >= 19 and Z < 21)
+      {
+        lcdCenterPrint("Cloudy");
+      }
+      else if (Z >= 21)
+      {
+        lcdCenterPrint("Rainy");
       }
     }
     else
     {
-      Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
-      Serial.printf("Request: %s", http.getString());
-      lcd.setCursor(0, 0);
-      lcd.print("Upload Failed :(");
-      lcd.setCursor(0, 1);
-      lcd.print(http.errorToString(httpResponseCode).c_str());
-    }
-    Serial.println(result);
-    http.end();
-    lcd.clear();
-}
-
-void displayForecast(int seapressure){
-  if (pressureArray[9] > 0 and pressureArray[0] > 0) {
-      if (pressureArray[9] + pressureArray[8] + pressureArray[7] - pressureArray[0] - pressureArray[1] - pressureArray[2] >= 3) {
-        // Raising Pressure
-        lcdCenterPrint("Raising");
-        if (Z < 3) {
-          lcdCenterPrint("Sunny");
-        }
-        else if (Z >= 3 and Z <= 9) {
-          lcdCenterPrint("Sunny Cloudy");
-        }
-        else if (Z > 9 and Z <= 17) {
-          lcdCenterPrint("Cloudy");
-        }
-        else if (Z > 17) {
-          lcdCenterPrint("Rainy");
-        }
+      // STEADY Pressure
+      lcdCenterPrint("Steady");
+      if (Z < 5)
+      {
+        lcdCenterPrint("Sunny");
       }
-
-      else if (pressureArray[0] + pressureArray[1] + pressureArray[2] - pressureArray[9] - pressureArray[8] - pressureArray[7] >= 3) {
-        //FALLING Pressure
-        lcdCenterPrint("Falling");
-        if (Z < 4) {
-          lcdCenterPrint("Sunny");
-        }
-        else if (Z >= 4 and Z < 14) {
-          lcdCenterPrint("Sunny Cloudy");
-        }
-        else if (Z >= 14 and Z < 19) {
-          lcdCenterPrint("Worsening");
-        }
-        else if (Z >= 19 and Z < 21) {
-          lcdCenterPrint("Cloudy");
-        }
-        else if (Z >= 21) {
-          lcdCenterPrint("Rainy");
-        }
-      }
-      else {
-        //STEADY Pressure
-        lcdCenterPrint("Steady");
-        if (Z < 5) {
-          lcdCenterPrint("Sunny");
-        }
-        else if (Z >= 5 and Z <= 11) {
-          lcdCenterPrint("Sunny Cloudy");
-        }
-        else if (Z > 11 and Z < 14) {
-          lcdCenterPrint("Cloudy");
-        }
-        else if (Z >= 14 and Z < 19) {
-          lcdCenterPrint("Worsening");
-        }
-        else if (Z >= 19) {
-          lcdCenterPrint("Rainy");
-        }
-      }
-    }
-    else {
-      if (seapressure < 1005) {
-        lcdCenterPrint("Rainy");
-      }
-      else if (seapressure >= 1005 and seapressure <= 1015) {
-        lcdCenterPrint("Cloudy");
-      }
-      else if (seapressure > 1015 and seapressure < 1025) {
+      else if (Z >= 5 and Z <= 11)
+      {
         lcdCenterPrint("Sunny Cloudy");
       }
-      else {
+      else if (Z > 11 and Z < 14)
+      {
+        lcdCenterPrint("Cloudy");
+      }
+      else if (Z >= 14 and Z < 19)
+      {
+        lcdCenterPrint("Worsening");
+      }
+      else if (Z >= 19)
+      {
         lcdCenterPrint("Rainy");
       }
     }
+  }
+  else
+  {
+    if (seapressure < 1005)
+    {
+      lcdCenterPrint("Rainy");
+    }
+    else if (seapressure >= 1005 and seapressure <= 1015)
+    {
+      lcdCenterPrint("Cloudy");
+    }
+    else if (seapressure > 1015 and seapressure < 1025)
+    {
+      lcdCenterPrint("Sunny Cloudy");
+    }
+    else
+    {
+      lcdCenterPrint("Rainy");
+    }
+  }
 }
 
 int calc_zambretti(int curr_pressure, int prev_pressure, byte mon)
@@ -316,7 +341,7 @@ void setup()
   lcd.begin();
   lcd.backlight();
   superPrint("  Initializing", 0, 0);
-// hardResetESP();
+  // hardResetESP();
   // read configuration from FS (FileSystem) json
   superPrint(" mounting FS... ", 0, 1);
 
@@ -440,7 +465,7 @@ void setup()
   time_t epochTime = timeClient.getEpochTime();
   Serial.print("Epoch Time: ");
   Serial.println(epochTime);
-  struct tm *ptm = gmtime ((time_t *)&epochTime); 
+  struct tm *ptm = gmtime((time_t *)&epochTime);
   month = ptm->tm_mon + 1;
 
   // Set up oversampling and filter initialization
@@ -478,25 +503,28 @@ void loop()
     hardResetESP();
   }
 
-  int seapressure = station2sealevel((int)bme.pressure, (int)bme.readAltitude(SEALEVELPRESSURE_HPA), (int)bme.temperature);
+  int seapressure = station2sealevel((int) (bme.pressure/100.0), (int)bme.readAltitude(SEALEVELPRESSURE_HPA), (int)bme.temperature);
 
   currentMillis = millis();                 // get the current "time" (actually the number of milliseconds since the program started)
-  if (currentMillis - startMillis >= 60000) // test whether the period has elapsed (in this case 5 seconds)
+  if (currentMillis - startMillis >= 60000) // test whether the period has elapsed (in this case 60 seconds)
   {
     delta_time++;
-    if (delta_time > 10) {    // every minute we increment delta_time, then every 10 minutes
-      delta_time = 0;         // we store the value in the array 
-    if (counter == 10)  // if we read 10 values and filled up the array, we shift the array content
-    {
-      for (int i = 0; i < 9; i++) {   // we shift the array one position to the left
-        pressureArray[i] = pressureArray[i + 1];
+    if (delta_time > 10)
+    {                    // every minute we increment delta_time, then every 10 minutes
+      delta_time = 0;    // we store the value in the array
+      if (counter == 10) // if we read 10 values and filled up the array, we shift the array content
+      {
+        for (int i = 0; i < 9; i++)
+        { // we shift the array one position to the left
+          pressureArray[i] = pressureArray[i + 1];
+        }
+        pressureArray[counter - 1] = seapressure;
       }
-      pressureArray[counter - 1] = seapressure;
-    }
-    else {        // this code fills up the pressure array value by value until is filled up
-      pressureArray[counter] = seapressure;
-      counter++;
-    }
+      else
+      { // this code fills up the pressure array value by value until is filled up
+        pressureArray[counter] = seapressure;
+        counter++;
+      }
     }
     Z = calc_zambretti((pressureArray[9] + pressureArray[8] + pressureArray[7]) / 3, (pressureArray[0] + pressureArray[1] + pressureArray[2]) / 3, month);
     beginWebUpload(); // Create a POST Request to api server
