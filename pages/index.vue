@@ -24,12 +24,6 @@ import '~/assets/stylesheets/index.css';
       <img alt="" class="img" src="../assets/images/japan_arduino.webp" width="500">
       <p>asd;asp[d</p>
 
-      <img alt="" class="img pt-3" src="../assets/images/teams/best.webp" width="500">
-      <img alt="" class="img pt-3" src="../assets/images/teams/japan.webp" width="500">
-
-      <img alt="" class="img pt-3" src="../assets/images/teams/krit.webp" width="500">
-      <img alt="" class="img pt-3" src="../assets/images/teams/tae.webp" width="500">
-
 
     </div>
     <br>
@@ -126,7 +120,13 @@ import '~/assets/stylesheets/index.css';
     </div>
 
     <Credit/>
+    <div class="flex flex-wrap">
+      <img alt="" class="img pt-3" src="../assets/images/teams/best.webp" width="500">
+      <img alt="" class="img pt-3" src="../assets/images/teams/japan.webp" width="500">
 
+      <img alt="" class="img pt-3" src="../assets/images/teams/krit.webp" width="500">
+      <img alt="" class="img pt-3" src="../assets/images/teams/tae.webp" width="500">
+    </div>
   </div>
 
 </template>
