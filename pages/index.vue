@@ -76,8 +76,8 @@ import '~/assets/stylesheets/index.css';
         ESP8266, ค่าที่ทำการวัดคือ สภาพแวดล้อม ความดัน, อุณหภูมิ, สภาพอากาศ และแก้ส</p>
 
       <p class="title">INPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"></p>
-      <p class="ml-7">&emsp;รับข้อมูลจากสภาพแวดล้อมด้วย BME680
-        สำหรับนำอุณหภูมิ ความดันอากาศ และ แก๊สเพื่อนำไปพยากรอากาศ</p>
+      <p class="ml-7">&emsp;รับข้อมูลจากสภาพแวดล้อมด้วย BME680 สำหรับวัดอุณหภูมิ ความดันอากาศ และแก๊ส
+        เพื่อนำไปพยากรอากาศ</p>
 
       <p class="title">FORECASTING
         <img alt="" src="../assets/images/rainbow.svg"
@@ -101,13 +101,13 @@ import '~/assets/stylesheets/index.css';
       <p class="title" style="margin-bottom:10px">CONNECTIVITY<img alt="" src="../assets/images/rainbow.svg"
                                                                    width="80px">
       </p>
-      <p class="ml-7">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
-        และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
+      <p class="ml-7">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย Library-WifiManager และส่งข้อมูลเข้าไป
+        แสดงหน้าเว็บด้วย Library-ESP8266HTTPClient</p>
 
       <p class="title">OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"></p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
-        และ ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ในหน้าจอ LCD บนตัวครื่อง
+        และ ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ของเครื่องในหน้าจอ LCD บนตัวครื่อง
       </p>
       <div class="grid grid-cols-2 text-6xl text-center m-10 mt-16">
 
