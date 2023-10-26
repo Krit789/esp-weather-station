@@ -12,7 +12,7 @@ import '~/assets/stylesheets/index.css';
     <div class="sook_south"></div>
   </div>
 
-  <div class="main-body">
+  <div class="main-body select-none">
     <div class="ma-10 text-center" style="margin-bottom: 50px;margin-top:20px">
       <h1 class="text-5xl mb-4 font-bold pt-2">The Forecaster</h1>
       <img alt="" class="rainbow-dash" src="/images/rainbow-line.webp" style="margin-top:-10px">
