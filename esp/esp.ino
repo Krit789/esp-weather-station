@@ -37,12 +37,19 @@ void saveConfigCallback()
   Serial.println("Should save config");
   shouldSaveConfig = true;
 }
+void superPrint(char *text, uint8_t col, uint8_t row)
+{
+  // Prints to both lcd and serial terminal
+  String text_ = String(text);
+  lcd.setCursor(col, row);
+  lcd.print(text_);
+  text_.trim();
+  Serial.println(text_);
+}
 
 void hardResetESP()
 {
-  lcd.setCursor(0, 1);
-  lcd.print("Hard Resetting... ");
-  Serial.println("Hard Resetting FS... ");
+  superPrint("Hard Resetting... ", 0, 1);
 
   SPIFFS.format();
   wifiManager.resetSettings();
@@ -58,12 +65,10 @@ void setup()
   pinMode(TRIGGER_PIN, INPUT_PULLUP);
   lcd.begin();
   lcd.backlight();
-  lcd.setCursor(0, 0);
-  lcd.print("  Initializing");
+  superPrint("  Initializing", 0, 0);
 
-  // read configuration from FS json
-  // read configuration from FS json
-  Serial.println("mounting FS...");
+  // read configuration from FS (FileSystem) json
+  superPrint(" mounting FS... ", 0, 1);
 
   if (SPIFFS.begin())
   {
@@ -100,7 +105,7 @@ void setup()
   }
   else
   {
-    Serial.println("failed to mount FS");
+    superPrint(" mount FS failed  ", 0, 1);
   }
   // end read
 
@@ -136,7 +141,7 @@ void setup()
   }
 
   // if you get here you have connected to the WiFi
-  Serial.println("connected...yeey :)");
+  superPrint(" WiFi Connected ", 0, 1);
 
   // read updated parameters
   strcpy(api_server, custom_api_server.getValue());
@@ -161,13 +166,19 @@ void setup()
     // end save
   }
 
-  Serial.println("local ip");
+  superPrint("    Local IP    ", 0, 0);
   Serial.println(WiFi.localIP());
+  int len = WiFi.localIP().toString().length();
+  lcd.setCursor((20 - len) / 2, 1);
+  lcd.print(WiFi.localIP());
 
   // End of WiFi
 
   if (!bme.begin())
   {
+    lcd.clear();
+    superPrint("Error", 0, 0);
+    superPrint("BME680 NotOn SPI", 0, 1);
     Serial.println("Could not find a valid BME680 sensor on SPI, check wiring!");
     while (1)
       ;
@@ -183,19 +194,31 @@ void setup()
 
 void loop()
 {
+  char buffer1[17];
+  char buffer2[17];
   if (!bme.performReading())
   {
-    Serial.println("Failed to perform reading :(");
+    superPrint("Sensor Read Fail", 0, 1);
+    // Serial.println("Failed to perform reading :(");
     return;
+  } else {
+    lcd.setCursor(0, 0);
+    sprintf(buffer1, "T%.2f%cC H%.1f%%", bme.temperature, char(223), bme.humidity);
+    lcd.print(buffer1);
+
+    lcd.setCursor(0, 1);
+    sprintf(buffer2, "P:%6d hPa   ", bme.pressure, bme.gas_resistance);
+    lcd.print(buffer2);
   }
+
   if (digitalRead(TRIGGER_PIN) == LOW)
   {
     hardResetESP();
   }
 
-  // Server POST Request
+  // Read from sensor and send POST Request to API Server
   currentMillis = millis();                // get the current "time" (actually the number of milliseconds since the program started)
-  if (currentMillis - startMillis >= 5000) // test whether the period has elapsed
+  if (currentMillis - startMillis >= 60000) // test whether the period has elapsed (in this case 5 seconds)
   {
     WiFiClient espWClient;
     HTTPClient http;
@@ -204,25 +227,35 @@ void loop()
     doc["humidity"] = bme.humidity;
     doc["barometric_pressure"] = bme.pressure;
     doc["gas"] = bme.gas_resistance / 1000.0;
+    doc["altitude"] = bme.readAltitude(SEALEVELPRESSURE_HPA);
     serializeJson(doc, result);
     http.begin(espWClient, api_server);
+    lcd.setCursor(0, 1);
+    lcd.print(" Uploading Data ");
     http.addHeader("Content-Type", "application/json");
     int httpResponseCode = http.POST(result);
     Serial.print("HTTP Response code: ");
     if (httpResponseCode > 0)
     {
       Serial.println(httpResponseCode);
+      if (httpResponseCode == 200) {
+
+        lcd.setCursor(0, 1);
+        lcd.print(" Data Uploaded! ");
+      }
     }
     else
     {
       Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
       Serial.printf("Request: %s", http.getString());
+      lcd.setCursor(0, 0);
+      lcd.print("Upload Failed :(");
+      lcd.setCursor(0, 1);
+      lcd.print(http.errorToString(httpResponseCode).c_str());
     }
     Serial.println(result);
-    // Free resources
     http.end();
 
-    startMillis = currentMillis; // IMPORTANT to save the start time of the current LED state.
+    startMillis = currentMillis;
   }
-  // put your main code here, to run repeatedly:
 }

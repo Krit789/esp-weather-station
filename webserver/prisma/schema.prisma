@@ -3,14 +3,16 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model sensor_data {
-  time                DateTime @id(map: "sensor_data_pk") @unique(map: "sensor_data_time_idx") @default(now()) @db.Timestamptz(6)
-  temperature         Float    @db.Real
-  humidity            Float    @db.Real
-  barometric_pressure Float    @db.Real
-  gas                 Float    @db.Real
+  id                  Int      @id @default(autoincrement()) @db.UnsignedInt
+  time                DateTime @unique(map: "sensor_data_time_IDX") @default(now()) @db.Timestamp(0)
+  temperature         Float    @db.Float
+  humidity            Float    @db.Float
+  barometric_pressure Float    @db.Float
+  gas                 Float    @db.Float
+  altitude            Float    @db.Float
 }
