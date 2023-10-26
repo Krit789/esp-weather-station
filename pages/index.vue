@@ -31,7 +31,7 @@ import '~/assets/stylesheets/index.css';
         <div class="invisible" style="margin: auto"><span class="text-2xl">LDR Light Sensor</span>
           <p class="text-sm">Photoresistor as a light detector</p><img alt="" class="img"
                                                                        src="../assets/images/Light_Sensor.png"
-                                                                       width="348">
+                                                                       width="100%">
         </div>
 
 
@@ -40,30 +40,28 @@ import '~/assets/stylesheets/index.css';
                                                                  src="../assets/images/rainbow.svg"
                                                                  style="margin-top:-5px" width="154px">
             <p class="text-sm">NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg extender board</p></div>
-          <div class="columns-2"><img class="img" src="../assets/images/NodeMCU_ESP8266-1.png" width="620" alt=""><img
-              class="img" src="../assets/images/NodeMCU_ESP8266-2.png" width="724" alt="">
+          <div class="columns-2"><img class="img" src="../assets/images/NodeMCU_ESP8266-1.png" width="100%"><img
+              class="img" src="../assets/images/NodeMCU_ESP8266-2.png" width="70%">
           </div>
         </div>
         <div class="invisible" style="margin: auto"><span class="text-2xl">BME680</span>
           <p class="text-sm">High-accuracy gas, pressure, humidity, and temperature sensor</p><img class="img"
                                                                                                    src="../assets/images/GY-BMP280.png"
-                                                                                                   width="96%" alt="">
-        </div>
+                                                                                                   width="96%"></div>
       </div>
       <div class="grid grid-cols-2 text-center" style="align-content: center;">
         <div style="margin: auto"><span class="text-2xl">BME680</span><img class="rainbow"
                                                                            src="../assets/images/rainbow.svg"
-                                                                           style="margin-top:-5px" width="154px" alt="">
+                                                                           style="margin-top:-5px" width="154px">
           <p class="text-sm">High-accuracy gas, pressure, humidity, and temperature sensor</p><img class="img"
-                                                                                                   src="../assets/images/BMP-680.png"
-                                                                                                   alt="">
+                                                                                                   src="../assets/images/BMP-680.png">
         </div>
         <div style="margin: auto"><span class="text-2xl">LCD module</span><img class="rainbow"
                                                                                src="../assets/images/rainbow.svg"
-                                                                               width="154px" alt="">
+                                                                               width="154px">
           <p class="text-sm">Liquid crystal display as another output </p><img class="img"
                                                                                src="../assets/images/LCD_module.png"
-                                                                               width="70%" alt="">
+                                                                               width="70%">
         </div>
       </div>
     </div>
@@ -103,13 +101,11 @@ import '~/assets/stylesheets/index.css';
       <p class="text-3xl mt-3" style="margin-bottom:10px">CONNECTIVITY<img src="../assets/images/rainbow.svg"
                                                                            width="80px" alt="">
       </p>
-      <p style="margin-left:30px">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
+      <p class="ml-7">&emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver ที่สร้างไว้ด้วย WIFI
         และส่งข้อมูลเข้าไปแสดงหน้าเว็บ</p>
 
-      <p class="text-3xl mt-3" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg" width="80px"
-                                                                     alt="">
-      </p>
-      <p style="margin-left:30px">
+      <p class="text-3xl ml-2.5 mb-5" style="margin-bottom:10px">OUTPUT<img src="../assets/images/rainbow.svg" width="80px"></p>
+      <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
         และ
         ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ในหน้าจอ LCD บนตัวครื่อง</p>
