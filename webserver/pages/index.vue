@@ -169,7 +169,7 @@ useIntervalFn(() => {
         <v-col cols="12">
           <v-hover v-slot="{ isHovering, props }">
             <v-card :elevation="isHovering ? 6 : 1" v-bind="props" class="rounded-lg">
-            <v-img :src="getForecastImage(36)" height="300px" cover></v-img>
+            <v-img :src="getForecastImage(data?.message.zambretti)" height="300px" cover></v-img>
             <v-card-title> Zambretti Forecast </v-card-title>
             <v-card-item class="font-weight-light text-h3 text-right mb-0 pb-0"
               ><p class="pb-1">

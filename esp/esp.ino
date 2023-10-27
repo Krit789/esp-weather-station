@@ -14,7 +14,7 @@
 #include <WiFiUdp.h>
 
 // select which pin will trigger the configuration portal when set to LOW
-#define TRIGGER_PIN 0
+#define TRIGGER_PIN 2
 #define SEALEVELPRESSURE_HPA (1013.25)
 
 Adafruit_BME680 bme; // I2C BME680 Sensor
@@ -750,6 +750,8 @@ void setup()
   // if it does not connect it starts an access point with the specified name
   // here  "The Forecaster"
   // and goes into a blocking loop awaiting configuration
+    superPrint("  WiFi Waiting  ", 0, 0);
+  lcdCenterPrint(" The Forecaster ");
   if (!wifiManager.autoConnect("The Forecaster", "forecaster-itkmitl"))
   {
     Serial.println("failed to connect and hit timeout");
