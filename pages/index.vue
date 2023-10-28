@@ -211,13 +211,13 @@ useSeoMeta({
             <div class="flex flex-row flex-auto justify-center align-middle">
               <img alt="" class="w-12" src="../assets/icons/youtube.svg"/>
               <NuxtLink
-                  class="text-red-400 font-bold ml-0"
-                  target="_blank"
-                  to="https://youtu.be/xp24NCMmRx8"
-              >Video Presentation
+                class="text-red-400 font-bold ml-0"
+                target="_blank"
+                to="https://youtu.be/Ta-5rEYYMiE"
+                >Video Presentation
               </NuxtLink>
             </div>
-            <NuxtLink to="https://youtu.be/xp24NCMmRx8">
+            <NuxtLink to="https://youtu.be/Ta-5rEYYMiE">
               <p class="text-2xl">YouTube Video</p>
             </NuxtLink>
           </div>
