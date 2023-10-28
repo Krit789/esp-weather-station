@@ -1,18 +1,27 @@
 <script lang="ts" setup>
 import "~/assets/stylesheets/global.css";
 import "~/assets/stylesheets/index.css";
+
+useHead({
+  title: "The Forecaster Project",
+  meta: [
+    {
+      name: "The Forecaster: Predict Accurately",
+      content: "The Forecaster, A Physical Computing Project",
+    },
+  ],
+});
+useSeoMeta({
+  title: "The Forecaster",
+  ogTitle: "The Forecaster",
+  description: "The Forecaster, High-Performance ESP-Based Weater Station.",
+  ogDescription: "The Forecaster, High-Performance ESP-Based Weater Station.",
+  ogImage: "/og_image.jpg",
+  twitterCard: "summary_large_image",
+});
 </script>
 
 <template>
-  <!-- <div class="Sooksan_Header">
-    <div class="sook_north">
-      <div class="sook_text">
-        King Mongkut's Institute of Technology Ladkrabang
-      </div>
-    </div>
-    <div class="sook_south"></div>
-  </div> -->
-
   <div class="main-body select-none">
     <div class="ma-10 text-center mb-12 mt-5">
       <h1 class="text-5xl mb-4 font-bold pt-2">The Forecaster</h1>
