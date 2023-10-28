@@ -195,31 +195,32 @@ import "~/assets/stylesheets/index.css";
         และ ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ของเครื่องในหน้าจอ LCD
         บนตัวครื่อง
       </p>
-      <div class="grid grid-cols-2 text-6xl text-center m-10 mt-16">
-        <div class="flex flex-col">
-          <div class="flex flex-row flex-auto justify-center align-middle">
-            <img class="w-12" src="../assets/icons/website.svg" alt="" />
-            <NuxtLink
-              class="text-amber-400 font-bold ml-5"
-              to="https://www.youtube.com/watch?v=MtTdZTJHwPA"
-              target="_blank"
-              >Link Website
-            </NuxtLink>
-          </div>
-          <p class="text-2xl">link here</p>
-        </div>
+    </div>
 
-        <div class="flex flex-col">
-          <div class="flex flex-row flex-auto justify-center align-middle">
-            <img class="w-24" src="../assets/icons/youtube.svg" alt="" />
-            <NuxtLink
-              class="text-amber-800 font-bold ml-2"
-              to="https://www.youtube.com/watch?v=MtTdZTJHwPA"
-              target="_blank"
-              >Link Youtube
-            </NuxtLink>
-          </div>
-          <p class="text-2xl">link here</p>
+    <div class="flex flex-warp justify-center gap-16 text-6xl text-center m-10 mt-16">
+      <div class="flex flex-col">
+        <div class="flex flex-row flex-auto justify-center align-middle">
+          <img class="w-12" src="../assets/icons/website.svg" alt="" />
+          <NuxtLink
+            class="text-amber-400 font-bold ml-5"
+            to="https://theforecaster.vercel.app"
+            target="_blank"
+            >Link Website
+            <p class="text-2xl">link here</p>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div class="flex flex-col">
+        <div class="flex flex-row flex-auto justify-center align-middle">
+          <img class="w-24" src="../assets/icons/youtube.svg" alt="" />
+          <NuxtLink
+            class="text-amber-800 font-bold ml-2"
+            to="https://www.youtube.com/watch?v=MtTdZTJHwPA"
+            target="_blank"
+            >Link Youtube
+            <p class="text-2xl">link here</p>
+          </NuxtLink>
         </div>
       </div>
     </div>
