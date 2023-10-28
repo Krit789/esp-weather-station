@@ -4,23 +4,23 @@ import "~/assets/stylesheets/index.css";
 </script>
 
 <template>
-  <div class="Sooksan_Header">
+  <!-- <div class="Sooksan_Header">
     <div class="sook_north">
       <div class="sook_text">
         King Mongkut's Institute of Technology Ladkrabang
       </div>
     </div>
     <div class="sook_south"></div>
-  </div>
+  </div> -->
 
   <div class="main-body select-none">
     <div class="ma-10 text-center mb-12 mt-5">
       <h1 class="text-5xl mb-4 font-bold pt-2">The Forecaster</h1>
       <img
-          alt=""
-          class="rainbow-dash"
-          src="/images/rainbow-line.webp"
-          style="margin-top: -10px"
+        alt=""
+        class="rainbow-dash"
+        src="/images/rainbow-line.webp"
+        style="margin-top: -10px"
       />
 
       <p class="mt-3 text-base">
@@ -28,13 +28,13 @@ import "~/assets/stylesheets/index.css";
       </p>
     </div>
     <div
-        class="grid grid-cols-2 gap-10 text-center"
-        style="width: 90%; margin: 0 auto"
+      class="grid grid-cols-2 gap-10 text-center"
+      style="width: 90%; margin: 0 auto"
     >
-      <img alt="" class="img" src="../assets/images/microcontroller1.jpg"/>
-      <img alt="" class="img" src="../assets/images/microcontroller2.jpg"/>
+      <img alt="" class="img" src="../assets/images/microcontroller1.jpg" />
+      <img alt="" class="img" src="../assets/images/microcontroller2.jpg" />
     </div>
-    <br/>
+    <br />
 
     <div id="sensors" class="sensor-box">
       <div class="grid grid-cols-3 text-center" style="align-content: center">
@@ -42,10 +42,10 @@ import "~/assets/stylesheets/index.css";
           <span class="text-2xl">LDR Light Sensor</span>
           <p class="text-sm">Photoresistor as a light detector</p>
           <img
-              alt=""
-              class="img"
-              src="../assets/images/Light_Sensor.png"
-              width="100%"
+            alt=""
+            class="img"
+            src="../assets/images/Light_Sensor.png"
+            width="100%"
           />
         </div>
 
@@ -58,7 +58,7 @@ import "~/assets/stylesheets/index.css";
               src="../assets/images/rainbow.svg"
               style="margin-top: -5px"
               width="154px"
-          />
+            />
             <p class="text-sm">
               NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg
               extender board
@@ -66,16 +66,16 @@ import "~/assets/stylesheets/index.css";
           </div>
           <div class="columns-2">
             <img
-                alt=""
-                class="img"
-                src="../assets/images/NodeMCU_ESP8266-1.png"
-                width="100%"
+              alt=""
+              class="img"
+              src="../assets/images/NodeMCU_ESP8266-1.png"
+              width="100%"
             /><img
               alt=""
               class="img"
               src="../assets/images/NodeMCU_ESP8266-2.png"
               width="70%"
-          />
+            />
           </div>
         </div>
         <div class="invisible" style="margin: auto">
@@ -84,10 +84,10 @@ import "~/assets/stylesheets/index.css";
             High-accuracy gas, pressure, humidity, and temperature sensor
           </p>
           <img
-              alt=""
-              class="img"
-              src="../assets/images/GY-BMP280.png"
-              width="96%"
+            alt=""
+            class="img"
+            src="../assets/images/GY-BMP280.png"
+            width="96%"
           />
         </div>
       </div>
@@ -100,11 +100,11 @@ import "~/assets/stylesheets/index.css";
             src="../assets/images/rainbow.svg"
             style="margin-top: -5px"
             width="154px"
-        />
+          />
           <p class="text-sm">
             High-accuracy gas, pressure, humidity, and temperature sensor
           </p>
-          <img alt="" class="img" src="../assets/images/BMP-680.png"/>
+          <img alt="" class="img" src="../assets/images/BMP-680.png" />
         </div>
         <div style="margin: auto">
           <span class="text-2xl">LCD module</span
@@ -113,13 +113,13 @@ import "~/assets/stylesheets/index.css";
             class="rainbow"
             src="../assets/images/rainbow.svg"
             width="154px"
-        />
+          />
           <p class="text-sm">Liquid crystal display as another output</p>
           <img
-              alt=""
-              class="img"
-              src="../assets/images/LCD_module.png"
-              width="70%"
+            alt=""
+            class="img"
+            src="../assets/images/LCD_module.png"
+            width="70%"
           />
         </div>
       </div>
@@ -127,7 +127,7 @@ import "~/assets/stylesheets/index.css";
 
     <div class="px-3">
       <p class="title">
-        ABSTRACT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        ABSTRACT<img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <p class="ml-7">
         &emsp;โปรเจ็กนี้เป็นการสร้างโปรแกรมสำหรับ Microcontroller
@@ -139,7 +139,7 @@ import "~/assets/stylesheets/index.css";
       </p>
 
       <p class="title">
-        INPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        INPUT<img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <p class="ml-7">
         &emsp;รับข้อมูลจากสภาพแวดล้อมด้วย BME680 สำหรับวัดอุณหภูมิ ความดันอากาศ
@@ -148,109 +148,147 @@ import "~/assets/stylesheets/index.css";
 
       <p class="title">
         FORECASTING
-        <img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        <img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <img
-          alt=""
-          class="table-forecast"
-          src="../assets/images/table_forecast.png"
+        alt=""
+        class="table-forecast"
+        src="../assets/images/table_forecast.png"
       />
       <p class="ml-7 mt-2.5">
         &emsp;ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ
         ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti Algorithm
         ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น
-        โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย <br/>-
-        หากความดันมีค่าตกหล่นจะใช้สมการ Z = 130 - (P0 / 81) <br/>-
-        หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81) <br/>-
-        หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81) <br/>- โดยค่า P0
+        โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย <br />-
+        หากความดันมีค่าตกหล่นจะใช้สมการ Z = 130 - (P0 / 81) <br />-
+        หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81) <br />-
+        หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81) <br />- โดยค่า P0
         คือค่าความดันที่ระดับน้ำทะเล หาได้จากสมการ
         <img
-            alt=""
-            src="../assets/images/formula.png"
-            class="m-2.5"
-            width="400px"
+          alt=""
+          src="../assets/images/formula.png"
+          class="m-2.5"
+          width="400px"
         />
-        <br/>P0 = ค่าความดันที่ระดับน้ำทะเล <br/>P = ค่าความดันที่วัดได้
-        <br/>h = ความสูงจากระดับน้ำทะเล <br/>T = อุนหภูมิที่วัดได้
+        <br />P0 = ค่าความดันที่ระดับน้ำทะเล <br />P = ค่าความดันที่วัดได้
+        <br />h = ความสูงจากระดับน้ำทะเล <br />T = อุนหภูมิที่วัดได้
       </p>
 
-      <p class="title">
+      <p class="title mt-10">
         CONNECTIVITY<img
           alt=""
           src="../assets/images/rainbow.svg"
           width="80px"
-      />
+        />
       </p>
       <p class="ml-7">
         &emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver
         ที่สร้างไว้ด้วย Library-WifiManager และส่งข้อมูลเข้าไป แสดงหน้าเว็บด้วย
         Library-ESP8266HTTPClient
       </p>
+      <img src="../assets/images/process.png" class="mx-5 mb-10 w-auto">
 
       <p class="title">
-        OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
         และ ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ของเครื่องในหน้าจอ LCD
         บนตัวครื่อง
       </p>
-      <div class="flex flex-col  text-6xl text-center m-10 mt-16">
-        <div class="flex flex-col">
-          <div class="flex flex-row flex-auto justify-center align-middle">
-            <img alt="" class="w-12" src="../assets/icons/website.svg"/>
-            <NuxtLink
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2  place-items-center text-6xl text-center m-10 mt-16">
+          <div class="hover:border-dotted hover:border-2 hover:border-sky-500 hover:rounded-lg">
+            <div class="flex flex-row flex-auto justify-center align-middle">
+              <img alt="" class="w-12" src="../assets/icons/youtube.svg" />
+              <NuxtLink
+                class="text-red-400 font-bold ml-0"
+                target="_blank"
+                to="https://youtu.be/xp24NCMmRx8"
+                >Video Presentation
+              </NuxtLink>
+            </div>
+            <NuxtLink to="https://youtu.be/xp24NCMmRx8">
+              <p class="text-2xl">YouTube Video</p>
+            </NuxtLink>
+          </div>
+          <div class="hover:border-dotted hover:border-2 hover:border-sky-500 hover:rounded-lg">
+            <div class="flex flex-row flex-auto justify-center align-middle">
+              <img alt="" class="w-12" src="../assets/icons/website.svg" />
+              <NuxtLink
                 class="text-amber-400 font-bold ml-5"
                 target="_blank"
-                to="https://theforecaster.vercel.app"
-            >Link Website
+                to="https://forecast.jarukrit.net"
+                >Project Website
+              </NuxtLink>
+            </div>
+            <NuxtLink to="https://forecast.jarukrit.net">
+              <p class="text-2xl">https://forecast.jarukrit.net</p>
             </NuxtLink>
           </div>
-          <p class="text-2xl">link here</p>
-        </div>
-
-        <div class="flex flex-col">
-          <div class="flex flex-row flex-auto justify-center align-middle">
-            <img alt="" class="w-24" src="../assets/icons/youtube.svg"/>
-            <NuxtLink
-                class="text-amber-800 font-bold ml-2"
+          <div class="hover:border-dotted hover:border-2 hover:border-sky-500 hover:rounded-lg">
+            <div class="flex flex-row flex-auto justify-center">
+              <img alt="" class="w-12 h-auto" src="../assets/icons/coding.svg" />
+              <NuxtLink
+                class="text-green-400 font-bold ml-5"
                 target="_blank"
-                to="https://www.youtube.com/watch?v=MtTdZTJHwPA"
-            >Link Youtube
+                to="https://github.com/Krit789/esp-weather-station"
+                >Source Code
+              </NuxtLink>
+            </div>
+            <NuxtLink to="https://github.com/Krit789/esp-weather-station">
+              <p class="text-2xl">esp-weather-station Repository</p>
             </NuxtLink>
           </div>
-          <p class="text-2xl">link here</p>
+          <div class="hover:border-dotted hover:border-2 hover:border-sky-500 hover:rounded-lg">
+            <div class="flex flex-row flex-auto justify-center align-middle">
+              <img alt="" class="w-12" src="../assets/icons/poster.svg" />
+              <NuxtLink
+                class="text-blue-400 font-bold ml-5"
+                target="_blank"
+                to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncBupgNetNIQyd-kLo4cJdgqQ?e=5kmTZV"
+                >Project Poster
+              </NuxtLink>
+            </div>
+            <NuxtLink to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncBupgNetNIQyd-kLo4cJdgqQ?e=5kmTZV">
+              <p class="text-2xl">KMITL OneDrive</p>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
 
-    <Credit/>
-    <div class="flex flex-wrap">
+    <Credit />
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mx-5">
+      <div>
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/best.webp"
-          width="500"
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/best.webp"
+        width="80%"
       />
+    </div>
+    <div>
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/japan.webp"
-          width="500"
-      />
-
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/japan.webp"
+        width="80%"
+      /></div>
+<div>
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/krit.webp"
-          width="500"
-      />
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/krit.webp"
+        width="80%"
+      /></div>
+      <div>
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/tae.webp"
-          width="500"
-      />
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/tae.webp"
+        width="80%"
+      /></div>
     </div>
   </div>
 </template>
