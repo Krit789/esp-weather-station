@@ -17,10 +17,10 @@ import "~/assets/stylesheets/index.css";
     <div class="ma-10 text-center mb-12 mt-5">
       <h1 class="text-5xl mb-4 font-bold pt-2">The Forecaster</h1>
       <img
-          alt=""
-          class="rainbow-dash"
-          src="/images/rainbow-line.webp"
-          style="margin-top: -10px"
+        alt=""
+        class="rainbow-dash"
+        src="/images/rainbow-line.webp"
+        style="margin-top: -10px"
       />
 
       <p class="mt-3 text-base">
@@ -28,13 +28,13 @@ import "~/assets/stylesheets/index.css";
       </p>
     </div>
     <div
-        class="grid grid-cols-2 gap-10 text-center"
-        style="width: 90%; margin: 0 auto"
+      class="grid grid-cols-2 gap-10 text-center"
+      style="width: 90%; margin: 0 auto"
     >
-      <img alt="" class="img" src="../assets/images/microcontroller1.jpg"/>
-      <img alt="" class="img" src="../assets/images/microcontroller2.jpg"/>
+      <img alt="" class="img" src="../assets/images/microcontroller1.jpg" />
+      <img alt="" class="img" src="../assets/images/microcontroller2.jpg" />
     </div>
-    <br/>
+    <br />
 
     <div id="sensors" class="sensor-box">
       <div class="grid grid-cols-3 text-center" style="align-content: center">
@@ -42,10 +42,10 @@ import "~/assets/stylesheets/index.css";
           <span class="text-2xl">LDR Light Sensor</span>
           <p class="text-sm">Photoresistor as a light detector</p>
           <img
-              alt=""
-              class="img"
-              src="../assets/images/Light_Sensor.png"
-              width="100%"
+            alt=""
+            class="img"
+            src="../assets/images/Light_Sensor.png"
+            width="100%"
           />
         </div>
 
@@ -58,7 +58,7 @@ import "~/assets/stylesheets/index.css";
               src="../assets/images/rainbow.svg"
               style="margin-top: -5px"
               width="154px"
-          />
+            />
             <p class="text-sm">
               NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg
               extender board
@@ -66,16 +66,16 @@ import "~/assets/stylesheets/index.css";
           </div>
           <div class="columns-2">
             <img
-                alt=""
-                class="img"
-                src="../assets/images/NodeMCU_ESP8266-1.png"
-                width="100%"
+              alt=""
+              class="img"
+              src="../assets/images/NodeMCU_ESP8266-1.png"
+              width="100%"
             /><img
               alt=""
               class="img"
               src="../assets/images/NodeMCU_ESP8266-2.png"
               width="70%"
-          />
+            />
           </div>
         </div>
         <div class="invisible" style="margin: auto">
@@ -84,10 +84,10 @@ import "~/assets/stylesheets/index.css";
             High-accuracy gas, pressure, humidity, and temperature sensor
           </p>
           <img
-              alt=""
-              class="img"
-              src="../assets/images/GY-BMP280.png"
-              width="96%"
+            alt=""
+            class="img"
+            src="../assets/images/GY-BMP280.png"
+            width="96%"
           />
         </div>
       </div>
@@ -100,11 +100,11 @@ import "~/assets/stylesheets/index.css";
             src="../assets/images/rainbow.svg"
             style="margin-top: -5px"
             width="154px"
-        />
+          />
           <p class="text-sm">
             High-accuracy gas, pressure, humidity, and temperature sensor
           </p>
-          <img alt="" class="img" src="../assets/images/BMP-680.png"/>
+          <img alt="" class="img" src="../assets/images/BMP-680.png" />
         </div>
         <div style="margin: auto">
           <span class="text-2xl">LCD module</span
@@ -113,13 +113,13 @@ import "~/assets/stylesheets/index.css";
             class="rainbow"
             src="../assets/images/rainbow.svg"
             width="154px"
-        />
+          />
           <p class="text-sm">Liquid crystal display as another output</p>
           <img
-              alt=""
-              class="img"
-              src="../assets/images/LCD_module.png"
-              width="70%"
+            alt=""
+            class="img"
+            src="../assets/images/LCD_module.png"
+            width="70%"
           />
         </div>
       </div>
@@ -127,7 +127,7 @@ import "~/assets/stylesheets/index.css";
 
     <div class="px-3">
       <p class="title">
-        ABSTRACT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        ABSTRACT<img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <p class="ml-7">
         &emsp;โปรเจ็กนี้เป็นการสร้างโปรแกรมสำหรับ Microcontroller
@@ -139,7 +139,7 @@ import "~/assets/stylesheets/index.css";
       </p>
 
       <p class="title">
-        INPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        INPUT<img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <p class="ml-7">
         &emsp;รับข้อมูลจากสภาพแวดล้อมด้วย BME680 สำหรับวัดอุณหภูมิ ความดันอากาศ
@@ -148,30 +148,30 @@ import "~/assets/stylesheets/index.css";
 
       <p class="title">
         FORECASTING
-        <img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        <img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <img
-          alt=""
-          class="table-forecast"
-          src="../assets/images/table_forecast.png"
+        alt=""
+        class="table-forecast"
+        src="../assets/images/table_forecast.png"
       />
       <p class="ml-7 mt-2.5">
         &emsp;ใช้วัดระดับความสูงเหนือระดับน้ำทะเล อุณหภูมิ และ
         ความดันอากาศในการพยากรณ์อากาศ โดยใช้ Zembretti Algorithm
         ซึ่งมีความแม่นยำสูงภายในพื้นที่ท้องถิ่น
-        โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย <br/>-
-        หากความดันมีค่าตกหล่นจะใช้สมการ Z = 130 - (P0 / 81) <br/>-
-        หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81) <br/>-
-        หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81) <br/>- โดยค่า P0
+        โดยจะนำค่าต่างๆมาคำนวนหาหมายเลขตารางหมายเลขพยากรณ์ Z โดย <br />-
+        หากความดันมีค่าตกหล่นจะใช้สมการ Z = 130 - (P0 / 81) <br />-
+        หากความดันมีค่าเสถียรจะใช้สมการ Z = 130 - (P0 / 81) <br />-
+        หากความดันมีค่าเพิ่มขึ้นจะใช้สมการ Z = 130 - (P0 / 81) <br />- โดยค่า P0
         คือค่าความดันที่ระดับน้ำทะเล หาได้จากสมการ
         <img
-            alt=""
-            class="m-2.5"
-            src="../assets/images/formula.png"
-            width="400px"
+          alt=""
+          src="../assets/images/formula.png"
+          class="m-2.5"
+          width="400px"
         />
-        <br/>P0 = ค่าความดันที่ระดับน้ำทะเล <br/>P = ค่าความดันที่วัดได้
-        <br/>h = ความสูงจากระดับน้ำทะเล <br/>T = อุนหภูมิที่วัดได้
+        <br />P0 = ค่าความดันที่ระดับน้ำทะเล <br />P = ค่าความดันที่วัดได้
+        <br />h = ความสูงจากระดับน้ำทะเล <br />T = อุนหภูมิที่วัดได้
       </p>
 
       <p class="title">
@@ -179,7 +179,7 @@ import "~/assets/stylesheets/index.css";
           alt=""
           src="../assets/images/rainbow.svg"
           width="80px"
-      />
+        />
       </p>
       <p class="ml-7">
         &emsp;เราทำการเชื่อมต่อเครื่องวัดสภาพอากาศเข้ากับ Webserver
@@ -188,7 +188,7 @@ import "~/assets/stylesheets/index.css";
       </p>
 
       <p class="title">
-        OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
+        OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px" />
       </p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
@@ -224,32 +224,32 @@ import "~/assets/stylesheets/index.css";
       </div>
     </div>
 
-    <Credit/>
+    <Credit />
     <div class="flex flex-wrap">
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/best.webp"
-          width="500"
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/best.webp"
+        width="500"
       />
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/japan.webp"
-          width="500"
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/japan.webp"
+        width="500"
       />
 
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/krit.webp"
-          width="500"
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/krit.webp"
+        width="500"
       />
       <img
-          alt=""
-          class="img pt-3"
-          src="../assets/images/teams/tae.webp"
-          width="500"
+        alt=""
+        class="img pt-3"
+        src="../assets/images/teams/tae.webp"
+        width="500"
       />
     </div>
   </div>
