@@ -213,11 +213,11 @@ useSeoMeta({
               <NuxtLink
                 class="text-red-400 font-bold ml-0"
                 target="_blank"
-                to="https://youtu.be/xp24NCMmRx8"
+                to="https://youtu.be/Ta-5rEYYMiE"
                 >Video Presentation
               </NuxtLink>
             </div>
-            <NuxtLink to="https://youtu.be/xp24NCMmRx8">
+            <NuxtLink to="https://youtu.be/Ta-5rEYYMiE">
               <p class="text-2xl">YouTube Video</p>
             </NuxtLink>
           </div>
