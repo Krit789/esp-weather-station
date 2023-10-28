@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# The Forecaster Dashboard with Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -19,6 +19,43 @@ yarn install
 # bun
 bun install
 ```
+
+## Prisma ORM Setup
+
+Make sure to hook up Prisma to your MySQL-Compatible database by setting up the environment variables in `.env` file
+
+More Info in [Prisma Database connectors - MySQL](https://www.prisma.io/docs/concepts/database-connectors/mysql)
+```text
+
+DATABASE_URL=mysql://USER:PASSWORD@HOST:PORT/DATABASE # Replace with your connection string here
+
+```
+
+
+Then push the database schema to your database
+
+```bash
+
+# npx
+npx prisma db push
+
+# pnpx
+pnpx prisma db push
+
+```
+
+And finally generate prisma client
+
+```bash
+
+# npx
+npx prisma generate
+
+# pnpx
+pnpx prisma generate
+
+```
+
 
 ## Development Server
 
