@@ -23,7 +23,7 @@ useSeoMeta({
 
 <template>
   <div class="main-body select-none">
-    <div class="ma-10 text-center mb-12 mt-5">
+    <div class="ma-10 text-center mb-6 mt-5">
       <h1 class="text-5xl mb-4 font-bold pt-2">The Forecaster</h1>
       <img
           alt=""
@@ -37,16 +37,16 @@ useSeoMeta({
       </p>
     </div>
     <div
-        class="grid grid-cols-2 gap-10 text-center"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 text-center"
         style="width: 90%; margin: 0 auto"
     >
-      <img alt="" class="img" src="../assets/images/microcontroller1.jpg"/>
-      <img alt="" class="img" src="../assets/images/microcontroller2.jpg"/>
+      <img alt="" class="rounded-lg shadow-lg" src="../assets/images/microcontroller1.jpg"/>
+      <img alt="" class="rounded-lg shadow-lg" src="../assets/images/microcontroller2.jpg"/>
     </div>
     <br/>
 
     <div id="sensors" class="sensor-box">
-      <div class="grid grid-cols-3 text-center" style="align-content: center">
+      <!-- <div class="grid grid-cols-3 text-center" style="align-content: center">
         <div class="invisible" style="margin: auto">
           <span class="text-2xl">LDR Light Sensor</span>
           <p class="text-sm">Photoresistor as a light detector</p>
@@ -57,7 +57,20 @@ useSeoMeta({
               width="100%"
           />
         </div>
-
+        <div class="invisible" style="margin: auto">
+          <span class="text-2xl">BME680</span>
+          <p class="text-sm py-3">
+            High-accuracy gas, pressure, humidity, and temperature sensor
+          </p>
+          <img
+              alt=""
+              class="img"
+              src="../assets/images/GY-BMP280.png"
+              width="96%"
+          />
+        </div>
+      </div> -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-center" style="align-content: center">
         <div style="margin: auto">
           <div>
             <span class="text-2xl">NodeMCU ESP8266</span
@@ -68,7 +81,7 @@ useSeoMeta({
               style="margin-top: -5px"
               width="154px"
           />
-            <p class="text-sm">
+            <p class="text-sm my-3">
               NodeMCU V3 LUA based ESP8266-12E for wifi connection with a leg
               extender board
             </p>
@@ -87,20 +100,6 @@ useSeoMeta({
           />
           </div>
         </div>
-        <div class="invisible" style="margin: auto">
-          <span class="text-2xl">BME680</span>
-          <p class="text-sm">
-            High-accuracy gas, pressure, humidity, and temperature sensor
-          </p>
-          <img
-              alt=""
-              class="img"
-              src="../assets/images/GY-BMP280.png"
-              width="96%"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2 text-center" style="align-content: center">
         <div style="margin: auto">
           <span class="text-2xl">BME680</span
           ><img
@@ -110,7 +109,7 @@ useSeoMeta({
             style="margin-top: -5px"
             width="154px"
         />
-          <p class="text-sm">
+          <p class="text-sm my-3">
             High-accuracy gas, pressure, humidity, and temperature sensor
           </p>
           <img alt="" class="img" src="../assets/images/BMP-680.png"/>
@@ -123,7 +122,7 @@ useSeoMeta({
             src="../assets/images/rainbow.svg"
             width="154px"
         />
-          <p class="text-sm">Liquid crystal display as another output</p>
+          <p class="text-sm my-3">Liquid crystal display as another output</p>
           <img
               alt=""
               class="img"
@@ -200,13 +199,23 @@ useSeoMeta({
       <p class="title">
         OUTPUT<img alt="" src="../assets/images/rainbow.svg" width="80px"/>
       </p>
-      <p class="ml-7">
+      <p class="ml-7 mb-5">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
         และ ข้อมูลที่วัดได้แบบ Real-Time รวมถึง Status ของเครื่องในหน้าจอ LCD
         บนตัวครื่อง
       </p>
       <div class="container mx-auto">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2  place-items-center text-6xl text-center m-10 mt-16">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 place-items-center">
+          <div>
+<img class="border-solid border-2 border-sky-500 rounded-lg shadow-lg" src="../assets/images/home.png">
+          </div>
+          <div>
+            <img class="border-solid border-2 border-sky-500 rounded-lg shadow-lg" src="../assets/images/history.png">
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 place-items-center text-6xl text-center m-10 mt-16">
           <div class="hover:border-dotted hover:border-2 hover:border-sky-500 hover:rounded-lg">
             <div class="flex flex-row flex-auto justify-center align-middle">
               <img alt="" class="w-12" src="../assets/icons/youtube.svg"/>
@@ -273,11 +282,15 @@ useSeoMeta({
     </div>
 
     <Credit/>
+    <div class="mb-3">
+      <h1 id="About" class="credit-header">Our Teams</h1>
+    <img alt="" class="rainbow-dash-s" src="/images/rainbow-line.webp"/>
+    </div>
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mx-5">
       <div>
         <img
             alt=""
-            class="img pt-3"
+            class="img pt-3 rounded-2xl shadow-lg"
             src="../assets/images/teams/best.webp"
             width="80%"
         />
@@ -285,21 +298,21 @@ useSeoMeta({
       <div>
         <img
             alt=""
-            class="img pt-3"
+            class="img pt-3 rounded-2xl shadow-lg"
             src="../assets/images/teams/japan.webp"
             width="80%"
         /></div>
       <div>
         <img
             alt=""
-            class="img pt-3"
+            class="img pt-3 rounded-2xl shadow-lg"
             src="../assets/images/teams/krit.webp"
             width="80%"
         /></div>
       <div>
         <img
             alt=""
-            class="img pt-3"
+            class="img pt-3 rounded-2xl shadow-lg"
             src="../assets/images/teams/tae.webp"
             width="80%"
         /></div>
