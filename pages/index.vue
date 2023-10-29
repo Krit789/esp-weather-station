@@ -202,7 +202,7 @@ useSeoMeta({
       </p>
       <p class="ml-7">
         &emsp;แสดงข้อมูลที่วัดไว้รวมถึงผลการพยากรณ์ในช่วงเวลาหนึ่งทั้งในปัจจุบันและประวัติการวัดที่ผ่านมาบนหน้าเว็บไซต์
-        และ ข้อมูลที่วัดได้แบบ Real Time รวมถึง Status ของเครื่องในหน้าจอ LCD
+        และ ข้อมูลที่วัดได้แบบ Real-Time รวมถึง Status ของเครื่องในหน้าจอ LCD
         บนตัวครื่อง
       </p>
       <div class="container mx-auto">
@@ -255,12 +255,12 @@ useSeoMeta({
               <NuxtLink
                   class="text-blue-400 font-bold ml-5"
                   target="_blank"
-                  to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncB8Hwr7YUYeX6KKvcXBUE11w?e=HmUhay"
+                  to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncB0vWxxmSHJdxlmFUT9Zi-BA?e=hz1Ym0"
               >Project Poster
               </NuxtLink>
             </div>
             <NuxtLink
-                to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncB8Hwr7YUYeX6KKvcXBUE11w?e=HmUhay">
+                to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncB0vWxxmSHJdxlmFUT9Zi-BA?e=hz1Ym0">
               <p class="text-2xl">KMITL OneDrive</p>
             </NuxtLink>
           </div>
