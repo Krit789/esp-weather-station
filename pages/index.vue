@@ -255,13 +255,17 @@ useSeoMeta({
               <NuxtLink
                   class="text-blue-400 font-bold ml-5"
                   target="_blank"
-                  to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncB0vWxxmSHJdxlmFUT9Zi-BA?e=hz1Ym0"
+                  to="https://drive.google.com/file/d/16f58smXSwh-ZMg4tmI-BLNXCQbzt_dY5/view"
               >Project Poster
               </NuxtLink>
             </div>
             <NuxtLink
-                to="https://kmitlthailand-my.sharepoint.com/:b:/g/personal/65070089_kmitl_ac_th/Ec3I2u7Qo_FChGwzX1Z4QncB0vWxxmSHJdxlmFUT9Zi-BA?e=hz1Ym0">
-              <p class="text-2xl">KMITL OneDrive</p>
+                to="https://drive.google.com/file/d/16f58smXSwh-ZMg4tmI-BLNXCQbzt_dY5/view">
+              <p class="text-2xl">Download PDF</p>
+            </NuxtLink>
+            <NuxtLink
+                to="https://drive.google.com/file/d/1Ncs2r0EI6K9qIcAwhyFTN0-RzrcnW95R/view">
+              <p class="text-2xl">Download AI</p>
             </NuxtLink>
           </div>
         </div>
